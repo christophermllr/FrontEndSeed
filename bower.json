@@ -1,0 +1,23 @@
+{
+  "name": "FrontEnd-Seed",
+  "version": "1.0.0",
+  "authors": [
+    "jmongiat <jmongiat@live.com>"
+  ],
+  "description": "Test",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs": "~1.2.23",
+    "semantic-ui": "~0.19.0"
+  }
+}
