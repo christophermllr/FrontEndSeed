@@ -3,13 +3,14 @@
  */
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')({
-    pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license']
+    pattern: ['gulp-*', 'main-bower-files']
 });
 
 var options = {
     folders: {
         distFolder: 'dist',
-        tempFolder: '.tmp'
+        tempFolder: '.tmp',
+        appFolder: 'app'
     }
 }
 
@@ -24,18 +25,24 @@ gulp.task('default', ['clean'], function() {
 
 gulp.task('clean', function() {
     return gulp.src([options.folders.tempFolder,
-        options.folders.distFolder
-    ], {
-        read: false
-    })
+            options.folders.distFolder
+        ], {
+            read: false
+        })
         .pipe($.rimraf());
 })
 
 
 gulp.task('prettify', function() {
     gulp.src('./gulpfile.js')
-        .pipe($.jsPrettify({
+        .pipe($.jsbeautifier({
             collapseWhitespace: true
         }))
         .pipe(gulp.dest('./')) // edit in place
+
+    gulp.src('./app/**/*.html')
+        .pipe($.jsbeautifier({
+            collapseWhitespace: true
+        }))
+        .pipe(gulp.dest('./app')) // edit in place
 });
