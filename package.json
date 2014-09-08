@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "connect-livereload": "^0.4.0",
+    "express": "^4.8.8",
     "gulp": "^3.8.7",
     "gulp-js-prettify": "^0.1.0",
     "gulp-jsbeautifier": "0.0.2",
@@ -17,7 +19,10 @@
     "gulp-rimraf": "^0.1.0",
     "gulp-useref": "^1.0.1",
     "gulp-watch": "^0.7.0",
+    "json-proxy": "^0.3.0",
+    "opn": "^1.0.0",
     "require-dir": "^0.1.0",
+    "tiny-lr": "^0.1.4",
     "wiredep": "^1.8.5"
   }
 }
