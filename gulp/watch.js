@@ -11,6 +11,7 @@ var $ = require('gulp-load-plugins')({
 gulp.task('watch', function () {
     gulp.watch('app/styles/**/*.less', ['styles']);
     gulp.watch('bower.json', ['wiredep']);
+    gulp.watch('app/scripts/**/*.js',['prettify'])
 
     gulp.watch([
         'app/*.html',
@@ -22,6 +23,6 @@ gulp.task('watch', function () {
 
 
 function handleReload(event) {
-    console.log('reloading... :)')
+    console.log('Reloading... :)')
     $.tinyLr.changed(event.path);
 }

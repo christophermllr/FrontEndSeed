@@ -31,18 +31,3 @@ gulp.task('clean', function() {
         })
         .pipe($.rimraf());
 })
-
-
-gulp.task('prettify', function() {
-    gulp.src('./gulpfile.js')
-        .pipe($.jsbeautifier({
-            collapseWhitespace: true
-        }))
-        .pipe(gulp.dest('./')) // edit in place
-
-    gulp.src('./app/**/*.html')
-        .pipe($.jsbeautifier({
-            collapseWhitespace: true
-        }))
-        .pipe(gulp.dest('./app')) // edit in place
-});
