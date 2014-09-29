@@ -17,7 +17,8 @@
     "tests"
   ],
   "dependencies": {
-    "angularjs": "~1.2.25",
-    "semantic-ui": "~0.19.3"
+    "angular": "~1.2.25",
+    "semantic-ui": "~0.19.3",
+    "angular-route": "~1.2.25"
   }
 }

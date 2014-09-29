@@ -17,8 +17,9 @@ module.exports = function(config) {
     files: [
         // bower:js
         '../app/bower_components/jquery/dist/jquery.js',
-        '../app/bower_components/angularjs/angular.js',
+        '../app/bower_components/angular/angular.js',
         '../app/bower_components/semantic-ui/build/packaged/javascript/semantic.js',
+        '../app/bower_components/angular-route/angular-route.js',
         // endbower
       {pattern: '../app/scripts/**/*.js', included: true},
       {pattern: 'unit/**/*.js', included: true}

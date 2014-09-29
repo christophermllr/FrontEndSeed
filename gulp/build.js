@@ -12,15 +12,15 @@ gulp.task('prettify', function() {
 
     console.log('Prettifying... ఠ_ఠ')
 
-    gulp.src('./gulpfile.js')
-        .pipe($.jsbeautifier({
-            collapseWhitespace: true
-        }))
-        .pipe(gulp.dest('./')) // edit in place
+    //gulp.src('./gulpfile.js')
+    //    .pipe($.jsbeautifier({
+    //        collapseWhitespace: true
+    //    }))
+    //    .pipe(gulp.dest('./')) // edit in place
 
-    gulp.src('./app/**/*.html')
-        .pipe($.jsbeautifier({
-            collapseWhitespace: true
-        }))
-        .pipe(gulp.dest('./app')) // edit in place
+    //gulp.src('./app/**/*.html')
+    //    .pipe($.jsbeautifier({
+    //        collapseWhitespace: true
+    //    }))
+    //    .pipe(gulp.dest('./app')) // edit in place
 });
