@@ -3,8 +3,9 @@
  */
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')({
-    pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license']
+    pattern: ['gulp-*', 'main-bower-files', 'express', 'json-proxy', 'uglify-save-license', 'tiny-lr']
 });
+
 
 
 gulp.task('styles', function () {

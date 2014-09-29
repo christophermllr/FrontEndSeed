@@ -6,13 +6,14 @@ var $ = require('gulp-load-plugins')({
     pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'tiny-lr', 'karma']
 });
 
-var karma = require('karma').server;
+var karmaConfig = __dirname + '/../test/karma.conf.js';
+
 /**
  * Run test once and exit
  */
-gulp.task('test', function (done) {
-    karma.start({
-        configFile: __dirname + '/../test/karma.conf.js',
+gulp.task('test', ['wiredep'], function (done) {
+    $.karma.server.start({
+        configFile: karmaConfig,
         singleRun: true
     }, done);
 });
@@ -20,8 +21,8 @@ gulp.task('test', function (done) {
 /**
  * Watch for file changes and re-run tests on each change
  */
-gulp.task('tdd', function (done) {
-    karma.start({
-        configFile: __dirname + '/../test/karma.conf.js'
+gulp.task('tdd', ['wiredep'], function (done) {
+    $.karma.server.start({
+        configFile: karmaConfig
     }, done);
 });

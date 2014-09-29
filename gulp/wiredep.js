@@ -1,6 +1,10 @@
 'use strict';
 
 var gulp = require('gulp');
+var $ = require('gulp-load-plugins')({
+    pattern: ['gulp-*', 'main-bower-files', 'express', 'json-proxy', 'uglify-save-license', 'tiny-lr', 'wiredep']
+});
+
 
 // inject bower components
 gulp.task('wiredep', function () {
