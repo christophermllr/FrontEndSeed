@@ -2,7 +2,7 @@
 
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')({
-    pattern: ['gulp-*', 'main-bower-files', 'express', 'json-proxy', 'uglify-save-license', 'tiny-lr']
+    pattern: ['gulp-*', 'main-bower-files', 'express', 'json-proxy', 'uglify-save-license', 'tiny-lr', 'opn', 'wiredep']
 });
 
 var LIVERELOAD_PORT = 35729;
@@ -17,7 +17,7 @@ var qaProxyTarget = 'http://localhost:9999';
 gulp.task('serve', ['watch'], function () {
     startServer(devProxyTarget, SERVER_PORT);
     startLivereload();
-    require('opn')('http://localhost:' + SERVER_PORT);
+    $.opn('http://localhost:' + SERVER_PORT);
 
 });
 
@@ -25,7 +25,7 @@ gulp.task('serve', ['watch'], function () {
 gulp.task('serve:qa', ['watch'], function () {
     startServer(qaProxyTarget, SERVER_PORT);
     startLivereload();
-    require('opn')('http://localhost:' + SERVER_PORT);
+    $.opn('http://localhost:' + SERVER_PORT);
 });
 
 //E2E needs

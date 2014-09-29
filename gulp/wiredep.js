@@ -2,14 +2,13 @@
 
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')({
-    pattern: ['gulp-*', 'main-bower-files', 'express', 'json-proxy', 'uglify-save-license', 'tiny-lr', 'wiredep']
+    pattern: ['gulp-*', 'main-bower-files', 'express', 'json-proxy', 'uglify-save-license', 'tiny-lr', 'opn', 'wiredep']
 });
 
 
 // inject bower components
 gulp.task('wiredep', function () {
-    var wiredep = require('wiredep').stream;
-
+    var wiredep = $.wiredep.stream;
     var bowerdir = 'app/bower_components';
 
     gulp.src('app/styles/*.less')
