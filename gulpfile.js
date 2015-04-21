@@ -15,6 +15,7 @@ var configDir = require('require-dir')('./gulp/config');
 var vendor = configDir.vendorConfig;
 var source = configDir.sourceConfig;
 var build = configDir.buildConfig;
+
 //Load related gulp files
 require('require-dir')('./gulp');
 

@@ -1,6 +1,8 @@
 /**
  * Created by jmongiat on 8/31/14.
  */
+"use strict";
+
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')({
     pattern: ['gulp-*', 'main-bower-files', 'express', 'json-proxy', 'uglify-save-license', 'tiny-lr', 'opn', 'wiredep']

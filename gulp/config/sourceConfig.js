@@ -14,7 +14,7 @@ var source = {
             watch: ['src/index.jade', hidden_files]
         },
         views: {
-            files: ['src/**/*.jade', ignored_files],
+            files: ['src/**/*.jade', ignored_files, '!src/index.jade'],
             watch: ['src/**/*.jade']
         },
     },
@@ -22,12 +22,12 @@ var source = {
         app: {
             main: ['src/less/app.less', '!src/less/themes/*.less'],
             dir: 'src/less',
-            watch: ['src/less/*.less', 'src/less/**/*.less', '!src/less/themes/*.less']
+            watch: ['src/**/*.less', '!src/less/themes/*.less']
         },
         themes: {
             main: ['src/less/themes/*.less', ignored_files],
             dir: 'src/less/themes',
-            watch: ['src/less/themes/*.less']
+            watch: ['src/less/themes/**/*.less']
         }
     },
     bootstrap: {

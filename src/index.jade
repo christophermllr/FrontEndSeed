@@ -2,8 +2,30 @@
 html(lang="en")
 
     head
-        
+        block styles
+            // build:css vendor.css
+            link(rel='stylesheet', href='vendor/angularjs-toaster/toaster.css')
+            link(rel='stylesheet', href='vendor/ng-table/ng-table.css')
+            link(rel='stylesheet', href='vendor/angular-ui-select/select.css')
+            link(rel='stylesheet', href='vendor/whirl/whirl.min.css')
+            link(rel='stylesheet', href='vendor/morris.js/morris.css')
+            // endbuild
+            
+            // build:css app.css
+            link(rel='stylesheet', href='app/css/app.css')
+            //endbuild
 
-    body()
-        
-        | Hello world
+            // build:css theme.css            
+            link(rel='stylesheet', href='app/css/theme-f.css')
+            // endbuild
+    body()    
+        h1 Hello world 2
+
+        block scripts
+            // build:js vendor.js
+            // endbuild
+            
+            // build:js app.js
+            script(src='123.js')
+            // endbuild
+

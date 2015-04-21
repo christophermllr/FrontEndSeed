@@ -22,10 +22,14 @@ function handleError(err) {
     this.emit('end');
 }
 
+
+// Wrapper task for running all styles
+gulp.task('styles', ['bootstrap', 'styles:app', 'styles:themes']);
+
+
 // APP LESS
 gulp.task('styles:app', function () {
     return gulp.src(source.styles.app.main)
-        .pipe($.debug())
         .pipe(build.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
         .pipe($.less({
             paths: [source.styles.app.dir]

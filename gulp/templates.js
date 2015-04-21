@@ -32,10 +32,13 @@ gulp.task('templates',
     'templates:views'
 ]);
 
+
+//Wrapper task for all templates
+gulp.task('templates', ['templates:app', 'templates:views']);
+
 // Root App Templates
 gulp.task('templates:app', function () {
-    return gulp.src(source.templates.app.files)
-        .pipe($.debug())
+    return gulp.src(source.templates.app.files)       
         .pipe(jade())
         .on("error", handleError)
         .pipe(prettify({
@@ -43,10 +46,6 @@ gulp.task('templates:app', function () {
             indent_size: 3,
             unformatted: ['a', 'sub', 'sup', 'b', 'i', 'u']
         }))
-        // .pipe(htmlify({
-        //     customPrefixes: ['ui-']
-        // }))
-        // .pipe(w3cjs( W3C_OPTIONS ))
         .pipe(gulp.dest(build.templates.app));
 });
 
@@ -61,10 +60,6 @@ gulp.task('templates:views', function () {
             indent_size: 3,
             unformatted: ['a', 'sub', 'sup', 'b', 'i', 'u']
         }))
-        // .pipe(htmlify({
-        //     customPrefixes: ['ui-']
-        // }))
-        //.pipe(w3cjs( W3C_OPTIONS ))
         .pipe(gulp.dest(build.templates.views));
 });
 
