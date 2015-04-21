@@ -6,7 +6,7 @@
 var gulp = require('gulp');
 var path = require('path');
 var $ = require('gulp-load-plugins')({
-    pattern: ['gulp-*', 'main-bower-files']
+    pattern: ['gulp-*', 'del', 'main-bower-files']
 });
 var gulpSync = $.sync(gulp);
 
@@ -22,15 +22,13 @@ var build = configDir.buildConfig;
  * Cleans output files and temporary files
  */
 gulp.task('clean', function () {
-    return gulp.src([
+    $.del([
         build.tempFolder,
         build.distFolder,
         build.appFolder,
-        build.html.main
-    ], {
-        read: false
-    })
-        .pipe($.rimraf());
+        build.html.main,
+        build.root
+    ]);
 });
 
 // Set is production build flag

@@ -59,8 +59,13 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/C/r/FrontEndSeed"
+	],
 	"file_history":
 	[
+		"/C/r/FrontEndSeed/src/index.jade",
 		"/C/r/FMSA.ATP/FMSA.ATP.Web/build/styles.js",
 		"/C/r/FMSA.ATP/FMSA.ATP.Web/gulpfile.js",
 		"/C/r/FMSA.ATP/FMSA.ATP.Web/build/options.js",
@@ -183,12 +188,12 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"last_filter": "",
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"select_symbol":
 	{
