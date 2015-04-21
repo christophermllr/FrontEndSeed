@@ -1,12 +1,15 @@
 {
     "isProduction": false,
     "useSourceMaps": true,
-    
+    "root": "build",
     "distFolder": "dist",
+    "devFolder": "dev",
     "tempFolder": ".tmp",
-    "appRoot":  "./",
-    "appFolder": "app",
-    "mainPage": "index.html",
+    "appFolder": "./app",
+    "html": {
+        "main": "app/index.html",
+        "pages": "app/views/**/*.html"
+    },
 
     "scripts": {
         "app": {
@@ -16,7 +19,7 @@
     },
     "styles": "./app/css",
     "templates": {
-        "app": ".",
-        "views": "./app"
+        "app": "./app",
+        "views": "./app/views"
     }
 }

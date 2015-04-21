@@ -13,7 +13,6 @@ var configDir = require('require-dir')('./config');
 var vendor = configDir.vendorConfig;
 var source = configDir.sourceConfig;
 var build = configDir.buildConfig;
-var options = configDir.options;
 
 
 // Error handler

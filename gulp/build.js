@@ -4,11 +4,13 @@
 "use strict";
 
 var gulp = require('gulp');
+var path = require('path');
 var $ = require('gulp-load-plugins')({
     pattern: ['gulp-*', 'main-bower-files']
 });
 var gulpSync = $.sync(gulp);
 
+var assets = $.useref.assets();
 
 // Configs
 var configDir = require('require-dir')('./config');
@@ -24,7 +26,7 @@ gulp.task('clean', function () {
         build.tempFolder,
         build.distFolder,
         build.appFolder,
-        build.mainPage
+        build.html.main
     ], {
         read: false
     })
@@ -43,4 +45,25 @@ gulp.task('prod', function () {
 gulp.task('sourcemaps', ['usesources', 'default']);
 gulp.task('usesources', function () {
     build.useSourceMaps = true;
+});
+
+gulp.task('dev', function () {
+
+
+    gulp.src([build.html.main, build.html.pages])
+            .pipe(assets)
+            .pipe($.debug())
+            .pipe(assets.restore())
+            .pipe($.useref())
+            .pipe(gulp.dest(path.join(build.root, build.devFolder)));
+});
+gulp.task('dist', function () {
+
+
+    gulp.src([build.html.main, build.html.pages])
+        .pipe(assets)
+        .pipe($.debug())
+        .pipe(assets.restore())
+        .pipe($.useref())
+        .pipe(gulp.dest(path.join(build.root, build.distFolder)));
 });

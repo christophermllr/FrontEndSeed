@@ -4,8 +4,9 @@ var ignored_files = '!' + hidden_files;
 
 // SOURCES CONFIG
 var source = {
+    root: 'src',
     scripts: {
-        app: ['src/main.js'],
+        app: ['src/**/*.js'],
         watch: ['src/**/*.js']
     },
     templates: {
@@ -36,7 +37,7 @@ var source = {
         watch: ['src/less/bootstrap/*.less']
     },
     bower: {
-        bowerDir: 'src/bower_components'   
+        bowerDir: 'bower_components'   
     },
     tests: {
         testDir: 'tests',

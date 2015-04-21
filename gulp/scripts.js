@@ -25,13 +25,14 @@ function handleError(err) {
 gulp.task('scripts:app', function () {
     // Minify and copy all JavaScript (except vendor scripts)
     return gulp.src(source.scripts.app)
-        .pipe(build.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
-        .pipe($.concat(build.scripts.app.main))
-        .pipe(build.isProduction ? $.ngAnnotate() : $.util.noop())
-        .on("error", handleError)
-        .pipe(build.isProduction ? $.uglify({preserveComments: 'some'}) : $.util.noop())
-        .on("error", handleError)
-        .pipe(build.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
+        .pipe($.angularFilesort())
+        //.pipe(build.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
+        //.pipe($.concat(build.scripts.app.main))
+        //.pipe(build.isProduction ? $.ngAnnotate() : $.util.noop())
+        //.on("error", handleError)
+        //.pipe(build.isProduction ? $.uglify({preserveComments: 'some'}) : $.util.noop())
+        //.on("error", handleError)
+        //.pipe(build.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
         .pipe(gulp.dest(build.scripts.app.dir));
 });
 
@@ -55,7 +56,7 @@ gulp.task('scripts:vendor:app', function () {
     var jsFilter = $.filter('**/*.js');
     var cssFilter = $.filter('**/*.css');
 
-    return gulp.src(vendor.app.source, {base: 'src/bower_components/'})
+    return gulp.src(vendor.app.source, {base: source.bower.bowerDir})
         .pipe($.expectFile(vendor.app.source))
         .pipe(jsFilter)
         .pipe(build.isProduction ? $.uglify({ preserveComments: 'some' }) : $.util.noop())

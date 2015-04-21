@@ -21,22 +21,23 @@ require('require-dir')('./gulp');
 
 
 gulp.task('start', [
+    'scripts:app',
+//'scripts:vendor',
     'styles:app',
     'styles:themes',
     'templates:app',
     'templates:views',
+    'dev',
     'serve'
 ]);
 
 
 
 // default (run without no minify)
-gulp.task('default', gulpSync.sync(
+gulp.task('default',
     [
-        //'scripts:vendor',
-        'scripts:app',
         'start'
-    ]), function () {
+    ], function () {
         $.util.log($.util.colors.cyan('************'));
         $.util.log($.util.colors.cyan('* All Done *'), 'You can start editing your code, LiveReload will update your browser after any change..');
         $.util.log($.util.colors.cyan('************'));

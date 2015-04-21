@@ -1,6 +1,8 @@
 'use strict';
 
 var gulp = require('gulp');
+var path = require('path');
+
 var $ = require('gulp-load-plugins')({
     pattern: ['gulp-*', 'main-bower-files', 'express', 'json-proxy', 'uglify-save-license', 'tiny-lr', 'opn', 'wiredep']
 });
@@ -43,7 +45,6 @@ gulp.task('serve:e2e', ['watch'], function () {
  Setup the server
  */
 function startServer(proxyUrl, serverPort) {
-
     var app = $.express();
 
     app.use(jsonProxyInit(proxyUrl));
@@ -51,9 +52,17 @@ function startServer(proxyUrl, serverPort) {
     app.use(require('connect-livereload')());
 
     app.use($.express.static(build.tempFolder));
-    app.use($.express.static(build.appRoot));
 
-    app.use('/fonts', $.express.static(build.appFolder + '/bower_components/bootstrap/fonts/'));
+    var appPath = './app';
+    //if (build.isProduction) {
+    //    appPath = path.join(build.root, build.distFolder);
+    //} else {
+    //    appPath = path.join(build.root, build.devFolder);
+    //}
+    app.use($.express.static(appPath));
+
+    app.use('/bower_components', $.express.static('./bower_components'));
+    app.use('/fonts', $.express.static('./bower_components/bootstrap/fonts/'));
 
     app.listen(serverPort);
 }

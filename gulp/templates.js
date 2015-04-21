@@ -52,7 +52,6 @@ gulp.task('templates:app', function () {
 // Views
 gulp.task('templates:views', function () {
     return gulp.src(source.templates.views.files)
-        .pipe($.debug())
         .pipe(jade())
         .on("error", handleError)
         .pipe(prettify({
