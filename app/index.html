@@ -9,9 +9,7 @@
    <!-- endbuild -->
    <!-- build:css css/app.css -->
    <link rel="stylesheet" href="css/app.css">
-   <!--endbuild -->
-   <!-- build:css theme.css -->
-   <link rel="stylesheet" href="css/app.css">
+   <link rel="stylesheet" href="css/theme-1.css">
    <!-- endbuild -->
 </head>
 
@@ -22,12 +20,14 @@
    <div class="basic ui segment">
       <div ng-view></div>
    </div>
+   <!-- build:js js/vendor.js    -->
    <!-- bower:js-->
    <script src="../bower_components/jquery/dist/jquery.js"></script>
    <script src="../bower_components/angular/angular.js"></script>
    <script src="../bower_components/semantic-ui/dist/semantic.js"></script>
    <script src="../bower_components/angular-route/angular-route.js"></script>
-   <!-- endbower -->
+   <!-- endbower             -->
+   <!-- endbuild -->
    <!-- build:js js/app.js -->
    <script src="js/main.js"></script>
    <script src="js/navigation/navigation-controller.js"></script>

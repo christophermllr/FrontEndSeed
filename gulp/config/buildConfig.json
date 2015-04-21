@@ -8,6 +8,7 @@
     "appFolder": "./app",
     "html": {
         "main": "app/index.html",
+        "all":  "app/**/*.html",
         "pages": "app/views/**/*.html"
     },
 

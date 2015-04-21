@@ -3,8 +3,6 @@ html(lang="en", ng-app='frontEndSeed')
 
     head
         block styles
-
-
             // build:css css/vendor.css 
             // bower:css
             link(rel='stylesheet', href='../bower_components/semantic-ui/dist/semantic.css')
@@ -13,10 +11,7 @@ html(lang="en", ng-app='frontEndSeed')
             
             // build:css css/app.css 
             link(rel='stylesheet', href='css/app.css')
-            //endbuild 
-
-            // build:css theme.css 
-            link(rel='stylesheet', href='css/app.css')
+            link(rel='stylesheet', href='css/theme-1.css')
             // endbuild 
     body(ng-controller='mainController as vm')    
 
@@ -31,14 +26,15 @@ html(lang="en", ng-app='frontEndSeed')
 
         block scripts
                
-               
+            // build:js js/vendor.js    
             // bower:js
             script(src='../bower_components/jquery/dist/jquery.js')
             script(src='../bower_components/angular/angular.js')
             script(src='../bower_components/semantic-ui/dist/semantic.js')
             script(src='../bower_components/angular-route/angular-route.js')
-            // endbower 
-            
+            // endbower             
+            // endbuild 
+
             // build:js js/app.js 
             //- inject:js
             script(src="js/main.js")

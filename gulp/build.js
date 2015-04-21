@@ -47,18 +47,17 @@ gulp.task('usesources', function () {
 
 gulp.task('dev', function () {
 
-
-    gulp.src([build.html.main, build.html.pages])
+    gulp.src([build.html.all])
             .pipe(assets)
-            .pipe($.debug())
+            .pipe($.if('*.css', $.csso()))
+            .pipe($.if('*.js', $.uglify({ preserveComments: 'some', outSourceMap: true  })))
             .pipe(assets.restore())
             .pipe($.useref())
-            .pipe(gulp.dest(path.join(build.root, build.devFolder)));
+            .pipe(gulp.dest('./build/dev'));
 });
 gulp.task('dist', function () {
 
-
-    gulp.src([build.html.main, build.html.pages])
+    gulp.src([build.html.all])
         .pipe(assets)
         .pipe($.debug())
         .pipe(assets.restore())

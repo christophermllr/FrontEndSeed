@@ -14,7 +14,6 @@
         vm.title = 'navigation_controller';
 
         vm.isActive = function (viewLocation) {
-            $log.info('isactive');
             return viewLocation === $location.path();
         };
 

@@ -26,13 +26,13 @@ gulp.task('scripts:app', function () {
     // Minify and copy all JavaScript (except vendor scripts)
     return gulp.src(source.scripts.app)
         .pipe($.angularFilesort())
-        //.pipe(build.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
+        .pipe(build.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
         //.pipe($.concat(build.scripts.app.main))
         .pipe(build.isProduction ? $.ngAnnotate() : $.util.noop())
         .on("error", handleError)
         //.pipe(build.isProduction ? $.uglify({preserveComments: 'some'}) : $.util.noop())
         //.on("error", handleError)
-        //.pipe(build.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
+        .pipe(build.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
         .pipe(gulp.dest(build.scripts.app.dir));
 });
 
@@ -45,7 +45,7 @@ gulp.task('scripts:vendor:base', function () {
     // Minify and copy all JavaScript (except vendor scripts)
     return gulp.src(vendor.base.source)
         .pipe($.expectFile(vendor.base.source))
-        .pipe(build.isProduction ? $.uglify({ preserveComments: 'some' }) : $.util.noop())
+        .pipe(build.isProduction ? $.uglify({ preserveComments: 'some'}) : $.util.noop())
         .pipe($.concat(vendor.base.name))
         .pipe(gulp.dest(vendor.base.dest));
 });
