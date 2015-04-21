@@ -30,8 +30,8 @@ gulp.task('scripts:app', function () {
         //.pipe($.concat(build.scripts.app.main))
         .pipe(build.isProduction ? $.ngAnnotate() : $.util.noop())
         .on("error", handleError)
-        //.pipe(build.isProduction ? $.uglify({preserveComments: 'some'}) : $.util.noop())
-        //.on("error", handleError)
+        .pipe(build.isProduction ? $.uglify({preserveComments: 'some'}) : $.util.noop())
+        .on("error", handleError)
         .pipe(build.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
         .pipe(gulp.dest(build.scripts.app.dir));
 });

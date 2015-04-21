@@ -17,6 +17,9 @@
    <h1 class="ui header">Front end seed</h1>
    <div ng-controller="navigationController" class="ui menu"><a ng-href="#/backend" ng-class="{active: isActive('/backend')}" class="teal item">yo</a><a ng-href="#/frontend" ng-class="{active: isActive('/frontend')}" class="teal item">yo2</a>
    </div>
+   <div class="ui segment">
+      <p>A test of the jade template engine and Gulp build</p>
+   </div>
    <div class="basic ui segment">
       <div ng-view></div>
    </div>
@@ -31,9 +34,9 @@
    <!-- build:js js/app.js -->
    <script src="js/main.js"></script>
    <script src="js/navigation/navigation-controller.js"></script>
-   <script src="js/Frontend/frontEnd.module.js"></script>
-   <script src="js/Backend/backend.module.js"></script>
-   <script src="js/Backend/backEnd.controller.js"></script>
+   <script src="js/frontend/frontEnd.module.js"></script>
+   <script src="js/backend/backend.module.js"></script>
+   <script src="js/backend/backEnd.controller.js"></script>
    <!-- endbuild -->
 </body>
 

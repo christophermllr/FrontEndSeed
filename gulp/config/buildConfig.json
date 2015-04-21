@@ -1,9 +1,9 @@
 {
     "isProduction": false,
     "useSourceMaps": true,
-    "root": "build",
+    "root": ".",
     "distFolder": "dist",
-    "devFolder": "dev",
+    "devFolder": ".",
     "tempFolder": ".tmp",
     "appFolder": "./app",
     "html": {

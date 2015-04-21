@@ -49,11 +49,11 @@ gulp.task('dev', function () {
 
     gulp.src([build.html.all])
             .pipe(assets)
-            .pipe($.if('*.css', $.csso()))
-            .pipe($.if('*.js', $.uglify({ preserveComments: 'some', outSourceMap: true  })))
+            //.pipe($.if('*.css', $.csso()))
+            //.pipe($.if('*.js', $.uglify({ preserveComments: 'some', outSourceMap: true  })))
             .pipe(assets.restore())
             .pipe($.useref())
-            .pipe(gulp.dest('./build/dev'));
+            .pipe(gulp.dest(path.join(build.root, build.devFolder)));
 });
 gulp.task('dist', function () {
 
