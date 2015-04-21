@@ -1,50 +1,35 @@
-﻿<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en" ng-app="frontEndSeed">
 
-<head lang="en">
-    <meta charset="UTF-8">
-
-    <link rel="stylesheet" href="bower_components/semantic-ui/build/packaged/css/semantic.css">
-
-    <!-- build:css({.tmp,app}) styles/vendor.css -->
-    <!-- endbuild -->
-    <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css" />
-    <link href="bower_components/semantic-ui/build/packaged/css/semantic.css" rel="stylesheet" />
-    <!-- endbuild -->
-
-
-    <title>
-    </title>
+<head>
+   <!-- build:css css/vendor.css -->
+   <link rel="stylesheet" href="../bower_components/semantic-ui/build/packaged/css/semantic.css">
+   <!-- endbuild -->
+   <!-- build:css css/app.css -->
+   <link rel="stylesheet" href="css/app.css">
+   <!--endbuild -->
+   <!-- build:css theme.css -->
+   <!-- endbuild -->
 </head>
 
-
-<body ng-app="frontEndSeed">
-
-    <h2 class="ui header">Full stack development tutorial</h2>
-    <div class="ui menu" ng-controller="navigationController">
-        <a class="teal item" ng-class="{active: isActive('/frontend')}" ng-href="#/frontend">Front end</a>
-        <a class="teal item" ng-class="{active: isActive('/backend')}" ng-href="#/backend">Back end</a>
-    </div>
-
-    <div class="ui basic segment">
-        
-        <div ng-view>view</div>
-
-    </div>
-
-
-    <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <script src="bower_components/semantic-ui/build/packaged/javascript/semantic.js"></script>
-    <script src="scripts/main.js"></script>
-    <script src="scripts/navigation/navigation-controller.js"></script>
+<body ng-controller="mainController as vm">
+   <h1 class="ui header">Front end seed</h1>
+   <div ng-controller="navigationController" class="ui menu"><a ng-href="#/backend" ng-class="{active: isActive('/backend')}" class="teal item">yo</a><a ng-href="#/frontend" ng-class="{active: isActive('/frontend')}" class="teal item">yo2</a>
+   </div>
+   <div class="basic ui segment">
+      <div ng-view></div>
+   </div>
+   <script src="../bower_components/jquery/dist/jquery.js"></script>
+   <script src="../bower_components/angular/angular.js"></script>
+   <script src="../bower_components/semantic-ui/build/packaged/javascript/semantic.js"></script>
+   <script src="../bower_components/angular-route/angular-route.js"></script>
+   <!-- build:js js/app.js -->
+   <script src="js/main.js"></script>
+   <script src="js/navigation/navigation-controller.js"></script>
+   <script src="js/Frontend/frontEnd.module.js"></script>
+   <script src="js/Backend/backend.module.js"></script>
+   <script src="js/Backend/backEnd.controller.js"></script>
+   <!-- endbuild -->
 </body>
 
 </html>

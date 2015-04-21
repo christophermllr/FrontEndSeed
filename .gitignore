@@ -185,6 +185,7 @@ FakesAssemblies/
 
 # Created by .gitignore support plugin (hsz.mobi)
 node_modules
-app/bower_components
+bower_components
+dist
 .tmp
 npm-debug.log

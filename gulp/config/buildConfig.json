@@ -1,0 +1,25 @@
+{
+    "isProduction": false,
+    "useSourceMaps": true,
+    "root": "build",
+    "distFolder": "dist",
+    "devFolder": "dev",
+    "tempFolder": ".tmp",
+    "appFolder": "./app",
+    "html": {
+        "main": "app/index.html",
+        "pages": "app/views/**/*.html"
+    },
+
+    "scripts": {
+        "app": {
+            "main": "app.js",
+            "dir": "./app/js"
+        }
+    },
+    "styles": "./app/css",
+    "templates": {
+        "app": "./app",
+        "views": "./app/views"
+    }
+}
