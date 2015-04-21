@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="bower_components/semantic-ui/build/packaged/css/semantic.css">
+
+    <!-- build:css({.tmp,app}) styles/vendor.css -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css" />
+    <link href="bower_components/semantic-ui/build/packaged/css/semantic.css" rel="stylesheet" />
+    <!-- endbuild -->
+
+
+    <title>
+    </title>
+</head>
+
+
+<body ng-app="frontEndSeed">
+
+    <h2 class="ui header">Full stack development tutorial</h2>
+    <div class="ui menu" ng-controller="navigationController">
+        <a class="teal item" ng-class="{active: isActive('/frontend')}" ng-href="#/frontend">Front end</a>
+        <a class="teal item" ng-class="{active: isActive('/backend')}" ng-href="#/backend">Back end</a>
+    </div>
+
+    <div class="ui basic segment">
+        
+        <div ng-view>view</div>
+
+    </div>
+
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <script src="bower_components/semantic-ui/build/packaged/javascript/semantic.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/navigation/navigation-controller.js"></script>
+</body>
+
+</html>

@@ -2,8 +2,13 @@
 
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')({
-    pattern: ['gulp-*', 'main-bower-files', 'express', 'json-proxy', 'uglify-save-license', 'tiny-lr', 'opn', 'wiredep', 'karma']
+    pattern: ['gulp-*', 'main-bower-files', 'express', 'json-proxy', 'uglify-save-license', 'tiny-lr', 'opn', 'wiredep']
 });
+
+// Configs
+var configDir = require('require-dir')('./config');
+var source = configDir.sourceConfig;
+var build = configDir.buildConfig;
 
 var LIVERELOAD_PORT = 35729;
 var SERVER_PORT = 9000;
@@ -45,10 +50,10 @@ function startServer(proxyUrl, serverPort) {
 
     app.use(require('connect-livereload')());
 
-    app.use($.express.static('.tmp'));
-    app.use($.express.static('app'));
+    app.use($.express.static(build.tempFolder));
+    app.use($.express.static(build.appRoot));
 
-    app.use('/fonts', $.express.static('app/bower_components/bootstrap/fonts/'))
+    app.use('/fonts', $.express.static(build.appFolder + '/bower_components/bootstrap/fonts/'));
 
     app.listen(serverPort);
 }
@@ -68,7 +73,7 @@ function handleReload(event) {
 //Setup the proxy
 
 var jsonProxyInit = function (proxyUrl) {
-    return  $.jsonProxy.initialize({
+    return $.jsonProxy.initialize({
         proxy: {
             forward: {
                 '/api': proxyUrl
