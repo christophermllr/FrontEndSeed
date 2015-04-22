@@ -22,7 +22,7 @@ html(lang="en", ng-app='frontEndSeed')
             a.teal.item(ng-href="#/frontend", ng-class="{active: isActive('/frontend')}" ) yo2
            
         div.ui.segment
-            p A test of the jade template engine and Gulp build
+            p This is a test of the jade template engine and Gulp build process
         div.basic.ui.segment
             div(ng-view)
 
@@ -41,8 +41,11 @@ html(lang="en", ng-app='frontEndSeed')
             //- inject:js
             script(src="js/main.js")
             script(src="js/navigation/navigation-controller.js")
-            script(src="js/frontend/frontEnd.module.js")
-            script(src="js/backend/backend.module.js")
-            script(src="js/backend/backEnd.controller.js")
+            script(src="js/Frontend/frontEndModel.js")
+            script(src="js/Frontend/frontEnd.module.js")
+            script(src="js/Frontend/frontEnd.controller.js")
+            script(src="js/Backend/backend.module.js")
+            script(src="js/Backend/backEnd.controller.js")
+            script(src="js/_all.js")
             //- endinject
             // endbuild 

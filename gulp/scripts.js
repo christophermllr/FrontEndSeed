@@ -2,18 +2,11 @@
  JADE Template processing
  */
 "use strict";
-
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')({
-    pattern: ['gulp-*', 'main-bower-files']
-});
-
-// Configs
-var configDir = require('require-dir')('./config');
-var vendor = configDir.vendorConfig;
-var source = configDir.sourceConfig;
-var build = configDir.buildConfig;
-var options = configDir.options;
+var gulp = require('gulp'),
+    config = require('./config/config'),
+    $ = require('gulp-load-plugins')({
+        pattern: ['gulp-*']
+    });
 
 // Error handler
 function handleError(err) {
@@ -24,16 +17,16 @@ function handleError(err) {
 // JS APP
 gulp.task('scripts:app', function () {
     // Minify and copy all JavaScript (except vendor scripts)
-    return gulp.src(source.scripts.app)
+    return gulp.src(config.source.scripts.app)
         .pipe($.angularFilesort())
-        .pipe(build.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
+        .pipe(config.build.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
         //.pipe($.concat(build.scripts.app.main))
-        .pipe(build.isProduction ? $.ngAnnotate() : $.util.noop())
+        .pipe(config.build.isProduction ? $.ngAnnotate() : $.util.noop())
         .on("error", handleError)
-        .pipe(build.isProduction ? $.uglify({preserveComments: 'some'}) : $.util.noop())
+        .pipe(config.build.isProduction ? $.uglify({preserveComments: 'some'}) : $.util.noop())
         .on("error", handleError)
-        .pipe(build.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
-        .pipe(gulp.dest(build.scripts.app.dir));
+        .pipe(config.build.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
+        .pipe(gulp.dest(config.build.scripts.app.dir));
 });
 
 // VENDOR BUILD
@@ -43,11 +36,11 @@ gulp.task('scripts:vendor', ['scripts:vendor:base', 'scripts:vendor:app']);
 gulp.task('scripts:vendor:base', function () {
 
     // Minify and copy all JavaScript (except vendor scripts)
-    return gulp.src(vendor.base.source)
+    return gulp.src(config.vendor.base.source)
         .pipe($.expectFile(vendor.base.source))
-        .pipe(build.isProduction ? $.uglify({ preserveComments: 'some'}) : $.util.noop())
-        .pipe($.concat(vendor.base.name))
-        .pipe(gulp.dest(vendor.base.dest));
+        .pipe(build.isProduction ? $.uglify({preserveComments: 'some'}) : $.util.noop())
+        .pipe($.concat(config.vendor.base.name))
+        .pipe(gulp.dest(config.vendor.base.dest));
 });
 
 // copy file from bower folder into the app vendor folder
@@ -56,14 +49,14 @@ gulp.task('scripts:vendor:app', function () {
     var jsFilter = $.filter('**/*.js');
     var cssFilter = $.filter('**/*.css');
 
-    return gulp.src(vendor.app.source, {base: source.bower.bowerDir})
-        .pipe($.expectFile(vendor.app.source))
+    return gulp.src(config.vendor.app.source, {base: config.source.bower.bowerDir})
+        .pipe($.expectFile(config.vendor.app.source))
         .pipe(jsFilter)
-        .pipe(build.isProduction ? $.uglify({ preserveComments: 'some' }) : $.util.noop())
+        .pipe(config.build.isProduction ? $.uglify({preserveComments: 'some'}) : $.util.noop())
         .pipe(jsFilter.restore())
         .pipe(cssFilter)
-        .pipe(build.isProduction ? $.uglify({ preserveComments: 'some' }) : $.util.noop())
+        .pipe(config.build.isProduction ? $.uglify({preserveComments: 'some'}) : $.util.noop())
         .pipe(cssFilter.restore())
-        .pipe(gulp.dest(vendor.app.dest));
+        .pipe(gulp.dest(config.vendor.app.dest));
 
 });

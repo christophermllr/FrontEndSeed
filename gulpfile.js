@@ -1,20 +1,15 @@
-/// <vs />
 /**
- * Created by jmongiat on 8/31/14.
+ * Main Gulp starting point
  */
 "use strict";
 
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')({
-    pattern: ['gulp-*', 'main-bower-files']
-});
-var gulpSync = $.sync(gulp);
+var gulp = require('gulp'),
+    config = require('./gulp/config/config'),
+    $ = require('gulp-load-plugins')({
+        pattern: ['gulp-*']
+    });
 
-// Configs
-var configDir = require('require-dir')('./gulp/config');
-var vendor = configDir.vendorConfig;
-var source = configDir.sourceConfig;
-var build = configDir.buildConfig;
+var gulpSync = $.sync(gulp);
 
 //Load related gulp files
 require('require-dir')('./gulp');
@@ -28,7 +23,6 @@ gulp.task('start', [
     'templates:app',
     'templates:views'
 ]);
-
 
 
 // default (run without no minify)

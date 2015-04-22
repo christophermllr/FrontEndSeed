@@ -1,10 +1,10 @@
 /**
- * Created by jmongiat on 9/2/2014.
+ * Runs unit testing using karma
  */
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')({
-    pattern: ['gulp-*', 'main-bower-files', 'express', 'json-proxy', 'uglify-save-license', 'tiny-lr', 'opn', 'wiredep', 'karma']
-});
+var gulp = require('gulp'),
+    $ = require('gulp-load-plugins')({
+        pattern: ['gulp-*', 'karma']
+    });
 
 var karmaConfig = __dirname + '/../test/karma.conf.js';
 

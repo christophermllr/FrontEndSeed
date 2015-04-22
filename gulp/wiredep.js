@@ -1,36 +1,34 @@
+/**
+ * Tasks for plugging file dependencies into the environment
+ */
+
 'use strict';
 
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')({
-    pattern: ['gulp-*', 'main-bower-files', 'express', 'json-proxy', 'uglify-save-license', 'tiny-lr', 'opn', 'wiredep', 'karma']
-});
+var gulp = require('gulp'),
+    config = require('./config/config'),
+    $ = require('gulp-load-plugins')({
+        pattern: ['gulp-*', 'main-bower-files', 'wiredep']
+    });
 
 
-// Configs
-var configDir = require('require-dir')('./config');
-var source = configDir.sourceConfig;
-var build = configDir.buildConfig;
-
-// inject bower components
 gulp.task('wiredep', function () {
-    var wiredep = $.wiredep.stream;
-
-    var angularSources = gulp.src(source.root + '/**/*.js').pipe($.angularFilesort());
+    var wiredep = $.wiredep.stream,
+        angularSources = gulp.src(config.source.root + '/**/*.js').pipe($.angularFilesort());
 
     gulp.src('app/styles/*.less')
         .pipe(wiredep({
-            directory: source.bowerDir
+            directory: config.source.bowerDir
         }))
-        .pipe(gulp.dest('app/styles'));
+        .pipe(gulp.dest(config.build.styles));
 
     gulp.src('app/*.html')
         .pipe(wiredep({
-            directory: source.bowerDir,
+            directory: config.source.bowerDir,
             exclude: []
         }))
         .pipe(gulp.dest('app'));
-   
-    gulp.src(source.templates.app.files, source.templates.views.files)
+
+    gulp.src(config.source.templates.app.files, config.source.templates.views.files)
         .pipe(wiredep({
             jade: {
                 block: /(([ \t]*)\/\/\s*bower:*(\S*))(\n|\r|.)*?(\/\/\s*endbower)/gi,
@@ -42,16 +40,16 @@ gulp.task('wiredep', function () {
                     js: 'script(src=\'{{filePath}}\')',
                     css: 'link(rel=\'stylesheet\', href=\'{{filePath}}\')'
                 }
-            },
+            }
         }))
-        .pipe($.inject(angularSources, { 
-            read: false, 
+        .pipe($.inject(angularSources, {
+            read: false,
             starttag: '//- {{name}}:{{ext}}',
             endtag: '//- endinject',
             relative: true,
             addPrefix: 'js'
         }))
-        .pipe(gulp.dest(source.root));
+        .pipe(gulp.dest(config.source.root));
 
     gulp.src('test/karma.conf.js')
         .pipe(wiredep({

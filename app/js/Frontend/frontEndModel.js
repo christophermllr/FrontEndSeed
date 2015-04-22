@@ -1,0 +1,3 @@
+/// <reference path='../_all.ts' />
+//# sourceMappingURL=frontEndModel.js.map
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiIiwic291cmNlcyI6WyJGcm9udGVuZC9mcm9udEVuZE1vZGVsLmpzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vLyA8cmVmZXJlbmNlIHBhdGg9Jy4uL19hbGwudHMnIC8+XG4vLyMgc291cmNlTWFwcGluZ1VSTD1mcm9udEVuZE1vZGVsLmpzLm1hcCJdLCJmaWxlIjoiRnJvbnRlbmQvZnJvbnRFbmRNb2RlbC5qcyIsInNvdXJjZVJvb3QiOiIvc291cmNlLyJ9

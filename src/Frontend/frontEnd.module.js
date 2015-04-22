@@ -1,12 +1,8 @@
-﻿(function () {
+/// <reference path='../_all.ts' />
+var FrontEnd;
+(function (FrontEnd) {
     'use strict';
-
-    angular.module('frontEnd', [
-        // Angular modules 
-
-        // Custom modules 
-
-        // 3rd Party Modules
-        
-    ]);
-})();
+    var thisModule = angular.module('frontEnd', []);
+    thisModule.controller('myController', FrontEnd.frontEndController);
+})(FrontEnd || (FrontEnd = {}));
+//# sourceMappingURL=frontEnd.module.js.map

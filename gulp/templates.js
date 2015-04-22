@@ -3,22 +3,11 @@
  */
 "use strict";
 
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')({
-    pattern: ['gulp-*', 'main-bower-files']
-});
-
-//Shortcut vars
-var jade = $.jade;
-var changed = $.changed;
-var prettify = $.htmlPrettify;
-
-// Configs
-var configDir = require('require-dir')('./config');
-var vendor = configDir.vendorConfig;
-var source = configDir.sourceConfig;
-var build = configDir.buildConfig;
-var options = configDir.options;
+var gulp = require('gulp'),
+    config = require('./config/config'),
+    $ = require('gulp-load-plugins')({
+        pattern: ['gulp-*']
+    });
 
 // Error handler
 function handleError(err) {
@@ -27,10 +16,10 @@ function handleError(err) {
 }
 
 gulp.task('templates',
-[
-    'templates:app',
-    'templates:views'
-]);
+    [
+        'templates:app',
+        'templates:views'
+    ]);
 
 
 //Wrapper task for all templates
@@ -38,27 +27,27 @@ gulp.task('templates', ['templates:app', 'templates:views']);
 
 // Root App Templates
 gulp.task('templates:app', function () {
-    return gulp.src(source.templates.app.files)       
-        .pipe(jade())
+    return gulp.src(config.source.templates.app.files)
+        .pipe($.jade())
         .on("error", handleError)
-        .pipe(prettify({
+        .pipe($.htmlPrettify({
             indent_char: ' ',
             indent_size: 3,
             unformatted: ['a', 'sub', 'sup', 'b', 'i', 'u']
         }))
-        .pipe(gulp.dest(build.templates.app));
+        .pipe(gulp.dest(config.build.templates.app));
 });
 
 // Views
 gulp.task('templates:views', function () {
-    return gulp.src(source.templates.views.files)
-        .pipe(jade())
+    return gulp.src(config.source.templates.views.files)
+        .pipe($.jade())
         .on("error", handleError)
-        .pipe(prettify({
+        .pipe($.htmlPrettify({
             indent_char: ' ',
             indent_size: 3,
             unformatted: ['a', 'sub', 'sup', 'b', 'i', 'u']
         }))
-        .pipe(gulp.dest(build.templates.views));
+        .pipe(gulp.dest(config.build.templates.views));
 });
 

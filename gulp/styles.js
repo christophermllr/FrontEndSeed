@@ -1,19 +1,11 @@
 /**
- * Created by jmongiat on 8/31/14.
+ * Compilation of LESS files
  */
-var gulp = require('gulp');
-
-var $ = require('gulp-load-plugins')({
-    pattern: ['gulp-*', 'through2', 'main-bower-files', 'express', 'json-proxy', 'uglify-save-license', 'tiny-lr', 'opn', 'wiredep']
-});
-
-
-// Configs
-var configDir = require('require-dir')('./config');
-var vendor = configDir.vendorConfig;
-var source = configDir.sourceConfig;
-var build = configDir.buildConfig;
-
+var gulp = require('gulp'),
+    config = require('./config/config'),
+    $ = require('gulp-load-plugins')({
+        pattern: ['gulp-*']
+    });
 
 // Error handler
 function handleError(err) {
@@ -28,35 +20,35 @@ gulp.task('styles', ['bootstrap', 'styles:app', 'styles:themes']);
 
 // APP LESS
 gulp.task('styles:app', function () {
-    return gulp.src(source.styles.app.main)
-        .pipe(build.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
+    return gulp.src(config.source.styles.app.main)
+        .pipe(config.build.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
         .pipe($.less({
-            paths: [source.styles.app.dir]
+            paths: [config.source.styles.app.dir]
         }))
         .on("error", handleError)
-        .pipe(build.isProduction ? $.minifyCss() : $.util.noop())
-        .pipe(build.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
-        .pipe(gulp.dest(build.styles));
+        .pipe(config.build.isProduction ? $.minifyCss() : $.util.noop())
+        .pipe(config.build.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
+        .pipe(gulp.dest(config.build.styles));
 });
 
 
 // LESS THEMES
 gulp.task('styles:themes', function () {
-    return gulp.src(source.styles.themes.main)
+    return gulp.src(config.source.styles.themes.main)
         .pipe($.less({
-            paths: [source.styles.themes.dir]
+            paths: [config.source.styles.themes.dir]
         }))
         .on("error", handleError)
-        .pipe(gulp.dest(build.styles));
+        .pipe(gulp.dest(config.build.styles));
 });
 
 // BOOSTRAP
 gulp.task('bootstrap', function () {
-    return gulp.src(source.bootstrap.main)
+    return gulp.src(config.source.bootstrap.main)
         .pipe($.less({
-            paths: [source.bootstrap.dir]
+            paths: [config.source.bootstrap.dir]
         }))
         .on("error", handleError)
-        .pipe(gulp.dest(build.styles));
+        .pipe(gulp.dest(config.build.styles));
 });
 
