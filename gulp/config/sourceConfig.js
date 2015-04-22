@@ -7,7 +7,11 @@ var source = {
     root: 'src',
     scripts: {
         app: ['src/**/*.js'],
-        watch: ['src/**/*.js']
+        watch: ['src/**/*.js'],
+        typescript: 'src/**/*.ts',
+        referenceFile: 'typings/_all.ts',
+        typingsFolder: 'typings',
+        typings: [ 'typings/**/*.ts', 'src/**/*.ts', '!typings/_all.ts']
     },
     templates: {
         app: {

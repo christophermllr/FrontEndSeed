@@ -1,2 +1,2 @@
-/// <reference path='../_all.ts' />
+/// <reference path='../../typings/_all.ts' />
 //# sourceMappingURL=frontEndModel.js.map

@@ -2,17 +2,19 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/src/_all.js" />
+        <item url="file://$PROJECT_DIR$/typings/_all.js" />
         <item url="file://$PROJECT_DIR$/src/Frontend/frontEnd.module.js" />
         <item url="file://$PROJECT_DIR$/src/Frontend/frontEnd.controller.js" />
         <item url="file://$PROJECT_DIR$/src/Frontend/frontEndModel.js" />
+        <item url="file://$PROJECT_DIR$/src/scripts/_all.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/src/_all.js" />
+      <root url="file://$PROJECT_DIR$/typings/_all.js" />
       <root url="file://$PROJECT_DIR$/src/Frontend/frontEnd.module.js" />
       <root url="file://$PROJECT_DIR$/src/Frontend/frontEnd.controller.js" />
       <root url="file://$PROJECT_DIR$/src/Frontend/frontEndModel.js" />
+      <root url="file://$PROJECT_DIR$/src/scripts/_all.js" />
     </CLASSES>
     <SOURCES />
   </library>

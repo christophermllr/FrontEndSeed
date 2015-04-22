@@ -10,24 +10,35 @@ var gulp = require('gulp'),
         pattern: ['gulp-*', 'main-bower-files', 'wiredep']
     });
 
+var wiredep = $.wiredep.stream;
+
+
+gulp.task('inject:tsreferences', function () {
+    var sources = gulp.src(config.source.scripts.typings);
+
+    gulp.src(config.source.scripts.referenceFile)
+        .pipe($.inject(sources, {
+            starttag: '//{',
+            endtag: '//}',
+            relative:true,
+            transform: function (filepath) {
+                return '/// <reference path="' + filepath + '" />';
+            }
+        })).pipe(gulp.dest(config.source.scripts.typingsFolder));
+
+});
 
 gulp.task('wiredep', function () {
-    var wiredep = $.wiredep.stream,
-        angularSources = gulp.src(config.source.root + '/**/*.js').pipe($.angularFilesort());
+    var angularSources = gulp.src(config.source.root + '/**/*.js').pipe($.angularFilesort());
 
+    //Wire Bower into LESS files
     gulp.src('app/styles/*.less')
         .pipe(wiredep({
             directory: config.source.bowerDir
         }))
         .pipe(gulp.dest(config.build.styles));
 
-    gulp.src('app/*.html')
-        .pipe(wiredep({
-            directory: config.source.bowerDir,
-            exclude: []
-        }))
-        .pipe(gulp.dest('app'));
-
+    //Wire Bower and Inject Scripts into Jade templates
     gulp.src(config.source.templates.app.files, config.source.templates.views.files)
         .pipe(wiredep({
             jade: {
@@ -51,6 +62,7 @@ gulp.task('wiredep', function () {
         }))
         .pipe(gulp.dest(config.source.root));
 
+    // Wire up the karma configuration file with Bower dependencies
     gulp.src('test/karma.conf.js')
         .pipe(wiredep({
             devDependencies: true,

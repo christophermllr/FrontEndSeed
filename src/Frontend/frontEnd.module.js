@@ -1,4 +1,4 @@
-/// <reference path='../_all.ts' />
+/// <reference path='../../typings/_all.ts' />
 var FrontEnd;
 (function (FrontEnd) {
     'use strict';

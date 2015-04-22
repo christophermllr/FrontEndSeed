@@ -1,7 +1,6 @@
-/// <reference path='../_all.ts' />
+/// <reference path='../../typings/_all.ts' />
 
 module FrontEnd {
-
     export class frontEndController {
         constructor(public model: FrontEndModel ) {
             this.model.title = "Front end";
