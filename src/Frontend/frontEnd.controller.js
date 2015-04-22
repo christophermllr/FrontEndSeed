@@ -1,17 +1,17 @@
 /// <reference path='../../typings/_all.ts' />
 var FrontEnd;
 (function (FrontEnd) {
-    var frontEndController = (function () {
-        function frontEndController(model) {
-            this.model = model;
+    "use strict";
+    var FrontEndController = (function () {
+        function FrontEndController() {
             this.model.title = "Front end";
             this.model.clicks = 0;
         }
-        frontEndController.prototype.smack = function (title) {
+        FrontEndController.prototype.smack = function (title) {
             this.model.clicks++;
         };
-        return frontEndController;
+        return FrontEndController;
     })();
-    FrontEnd.frontEndController = frontEndController;
+    FrontEnd.FrontEndController = FrontEndController;
 })(FrontEnd || (FrontEnd = {}));
 //# sourceMappingURL=frontEnd.controller.js.map
