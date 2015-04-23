@@ -27,10 +27,15 @@ gulp.task('clean', function () {
 gulp.task('compile', ['dist'], function () {
     
 });
+gulp.task('compile-dev', ['dev'], function () {
+
+});
+
 
 // Set is production build flag
 // build for production (minify)
 gulp.task('build', ['prod', 'default']);
+
 gulp.task('prod', function () {
     config.build.isProduction = true;
 });
@@ -42,20 +47,18 @@ gulp.task('usesources', function () {
     config.build.useSourceMaps = true;
 });
 
-gulp.task('dev', function () {
+gulp.task('dev', ['start'], function () {
 
     gulp.src([config.build.html.all])
         .pipe(assets)
         .pipe(assets.restore())
         .pipe($.useref())
-        .pipe($.debug())
         .pipe(gulp.dest(path.join(config.build.root, config.build.devFolder)));
 });
-gulp.task('dist', ['start'], function () {
+gulp.task('dist', ['prod', 'start'], function () {
 
     gulp.src([config.build.html.all])
         .pipe(assets)
-        .pipe($.debug())
         .pipe(assets.restore())
         .pipe($.useref())
         .pipe(gulp.dest(path.join(config.build.root, config.build.distFolder)));

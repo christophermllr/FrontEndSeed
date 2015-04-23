@@ -16,7 +16,9 @@ require('require-dir')('./gulp');
 
 
 gulp.task('start', [
-    'wiredep',
+    'clean',
+    'inject-typescript',
+    'inject-less',
     'scripts:app',
     'styles:app',
     'styles:themes',
