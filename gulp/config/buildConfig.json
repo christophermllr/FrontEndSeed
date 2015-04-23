@@ -3,7 +3,7 @@
     "useSourceMaps": true,
     "root": ".",
     "distFolder": "dist",
-    "devFolder": ".",
+    "devFolder": "dev",
     "tempFolder": ".tmp",
     "appFolder": "./app",
     "html": {

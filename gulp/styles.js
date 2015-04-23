@@ -19,7 +19,7 @@ gulp.task('styles', ['bootstrap', 'styles:app', 'styles:themes']);
 
 
 // APP LESS
-gulp.task('styles:app', function () {
+gulp.task('styles:app', ['clean'], function () {
     return gulp.src(config.source.styles.app.main)
         .pipe(config.build.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
         .pipe($.less({
@@ -33,7 +33,7 @@ gulp.task('styles:app', function () {
 
 
 // LESS THEMES
-gulp.task('styles:themes', function () {
+gulp.task('styles:themes', ['clean'], function () {
     return gulp.src(config.source.styles.themes.main)
         .pipe($.less({
             paths: [config.source.styles.themes.dir]
@@ -43,7 +43,7 @@ gulp.task('styles:themes', function () {
 });
 
 // BOOSTRAP
-gulp.task('bootstrap', function () {
+gulp.task('bootstrap', ['clean'], function () {
     return gulp.src(config.source.bootstrap.main)
         .pipe($.less({
             paths: [config.source.bootstrap.dir]

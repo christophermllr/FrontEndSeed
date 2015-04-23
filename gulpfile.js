@@ -24,7 +24,6 @@ gulp.task('start', [
     'templates:views'
 ]);
 
-
 // default (run without no minify)
 gulp.task('default', ['start', 'serve'], function () {
     $.util.log($.util.colors.cyan('************'));

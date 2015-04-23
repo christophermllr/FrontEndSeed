@@ -26,7 +26,7 @@ gulp.task('templates',
 gulp.task('templates', ['templates:app', 'templates:views']);
 
 // Root App Templates
-gulp.task('templates:app', function () {
+gulp.task('templates:app', ['clean', 'scripts:app', 'styles:app', 'styles:themes', 'bootstrap'], function () {
     return gulp.src(config.source.templates.app.files)
         .pipe($.jade())
         .on("error", handleError)
@@ -39,7 +39,7 @@ gulp.task('templates:app', function () {
 });
 
 // Views
-gulp.task('templates:views', function () {
+gulp.task('templates:views', ['clean', 'scripts:app', 'styles:app', 'styles:themes', 'bootstrap'], function () {
     return gulp.src(config.source.templates.views.files)
         .pipe($.jade())
         .on("error", handleError)
