@@ -20,7 +20,7 @@ function handleReload(event) {
 //---------------
 
 // Rerun the task when a file changes
-gulp.task('watch', ['start'], function () {
+gulp.task('watch', ['compile-all'], function () {
 
     gulp.watch(config.source.scripts.watch, ['scripts-app']);
     gulp.watch(config.source.scripts.typescript, ['compile-typescript']);

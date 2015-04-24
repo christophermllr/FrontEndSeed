@@ -27,7 +27,7 @@ gulp.task('compile-typescript', function () {
                        .pipe($.typescript({
                            target: 'ES5',
                            declarationFiles: false,
-                           noExternalResolve: true
+                           noExternalResolve: false
                        }));
 
     tsResult.dts.pipe(gulp.dest(config.build.scripts.app));

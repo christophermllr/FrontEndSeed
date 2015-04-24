@@ -14,23 +14,22 @@ var gulpSync = $.sync(gulp);
 //Load related gulp files
 require('require-dir')('./gulp');
 
-
-gulp.task('start', [
+gulp.task('compile-all', ['compile-assets', 'compile-templates']);
+gulp.task('compile-templates', ['inject-jade'], function() {
+    $.runSequence(['templates-app', 'templates-views']);
+});
+gulp.task('compile-assets', [
     'inject-typescript',
     'inject-less',
-    'inject-jade',
     'compile-typescript',
     'scripts-app',
     'styles-app',
-    'styles-themes'], function() {
-        $.runSequence('templates');
-    }
-);
+    'styles-themes'
+]);
 
-gulp.task('templates', ['templates-app', 'templates-views']);
 // default (run without no minify)
 gulp.task('default', function () {
-    $.runSequence(['clean', 'start', 'serve']);
+    $.runSequence(['clean', 'compile-all', 'serve']);
     $.util.log($.util.colors.cyan('************'));
     $.util.log($.util.colors.cyan('* All Done *'), 'You can start editing your code, LiveReload will update your browser after any change..');
     $.util.log($.util.colors.cyan('************'));

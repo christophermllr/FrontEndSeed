@@ -13,11 +13,9 @@ var gulp = require('gulp'),
 var assets = $.useref.assets();
 
 
-gulp.task('compile', ['clean-dist'], function () {
-    $.runSequence('dist');
+gulp.task('build', ['dist', 'clean-dist', 'compile-dist'], function () {
 });
-gulp.task('compile-dev', ['clean-dev'], function () {
-    $.runSequence('dev');
+gulp.task('build-dev', ['dev', 'clean-dev', 'compile-dev'], function () {
 });
 
 
@@ -42,22 +40,20 @@ gulp.task('clean-dist', ['clean'], function () {
 });
 
 
-// Set is production build flag
-// build for productigulon (minify)
-gulp.task('build', ['prod', 'default']);
+/*
+ * Sets build configuration to isProduction
+ */
 
-gulp.task('prod', function () {
+gulp.task('dist', ['clean-dist'], function () {
     config.build.isProduction = true;
 });
-
-// build option to
-// build with sourcemaps (no minify)
-gulp.task('sourcemaps', ['usesources', 'default']);
-gulp.task('usesources', function () {
-    config.build.useSourceMaps = true;
+gulp.task('dev', ['clean-dev'], function () {
+    config.build.isProduction = false;
 });
 
-gulp.task('dev', ['start', 'templates'], function () {
+
+
+gulp.task('compile-dev', ['dev', 'compile-all'], function () {
 
     gulp.src([config.build.html])
         .pipe(assets)
@@ -67,7 +63,7 @@ gulp.task('dev', ['start', 'templates'], function () {
         .pipe($.revReplace())
         .pipe(gulp.dest(path.join(config.build.root, config.build.devFolder)));
 });
-gulp.task('dist', ['prod', 'start', 'templates'], function () {
+gulp.task('compile-dist', ['dist', 'compile-all'], function () {
 
     gulp.src([config.build.html])
         .pipe(assets)
@@ -76,4 +72,13 @@ gulp.task('dist', ['prod', 'start', 'templates'], function () {
         .pipe($.useref())
         .pipe($.revReplace())
         .pipe(gulp.dest(path.join(config.build.root, config.build.distFolder)));
+});
+
+
+
+// build option to
+// build with sourcemaps (no minify)
+gulp.task('sourcemaps', ['usesources', 'default']);
+gulp.task('usesources', function () {
+    config.build.useSourceMaps = true;
 });

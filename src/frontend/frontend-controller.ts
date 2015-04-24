@@ -8,8 +8,8 @@ function frontEndController() {
 
     this.model.title = "Front end";
     this.model.clicks = 0;
-    //smack: function (title: string) {
-    //    this.model.clicks++;
-    //}
+    this.smack = function () {
+        this.model.clicks++;
+    }
 }
 
