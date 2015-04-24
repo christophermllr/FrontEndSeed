@@ -19,7 +19,7 @@ gulp.task('styles', ['bootstrap', 'styles:app', 'styles:themes']);
 
 
 // APP LESS
-gulp.task('styles:app', function () {
+gulp.task('styles:app', ['inject-less'], function () {
     return gulp.src(config.source.styles.app.main)
         .pipe(config.build.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
         .pipe($.less({
@@ -32,7 +32,7 @@ gulp.task('styles:app', function () {
 
 
 // LESS THEMES
-gulp.task('styles:themes', function () {
+gulp.task('styles:themes', ['inject-less'], function () {
     return gulp.src(config.source.styles.themes.main)
         .pipe(config.build.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
         .pipe($.less())

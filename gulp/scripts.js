@@ -15,7 +15,7 @@ function handleError(err) {
 }
 
 // JS APP
-gulp.task('scripts:app', [], function () {
+gulp.task('scripts:app', ['inject-typescript'], function () {
     // Minify and copy all JavaScript (except vendor scripts)
     return gulp.src(config.source.scripts.app)
         .pipe($.angularFilesort())
@@ -33,7 +33,7 @@ gulp.task('scripts:app', [], function () {
 gulp.task('scripts:vendor', ['scripts:vendor:base', 'scripts:vendor:app']);
 
 //  This will be included vendor files statically
-gulp.task('scripts:vendor:base', ['clean'], function () {
+gulp.task('scripts:vendor:base', ['inject-typescript'], function () {
 
     // Minify and copy all JavaScript (except vendor scripts)
     return gulp.src(config.vendor.base.source)
@@ -44,7 +44,7 @@ gulp.task('scripts:vendor:base', ['clean'], function () {
 });
 
 // copy file from bower folder into the app vendor folder
-gulp.task('scripts:vendor:app', [], function () {
+gulp.task('scripts:vendor:app', function () {
 
     var jsFilter = $.filter('**/*.js');
     var cssFilter = $.filter('**/*.css');

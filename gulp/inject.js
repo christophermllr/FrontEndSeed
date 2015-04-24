@@ -66,7 +66,7 @@ gulp.task('inject-jade', ['inject-typescript', 'inject-less', 'styles:app', 'sty
     var angularSources = gulp.src(config.source.root + '/**/*.js').pipe($.angularFilesort());
 
 
-    gulp.src(config.source.templates.app.files, config.source.templates.views.files)
+    return gulp.src(config.source.templates.app.files, config.source.templates.views.files)
         .pipe($.inject(angularSources, {
             read: false,
             starttag: '//- {{name}}:{{ext}}',
