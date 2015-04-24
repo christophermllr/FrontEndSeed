@@ -24,8 +24,11 @@ gulp.task('inject-less', ['inject-typescript'], function () {
 });
 
 gulp.task('inject-typescript', function () {
-    var sources = gulp.src(config.source.scripts.typings);
+    var sourceFiles = config.source.scripts.typings.slice();
+    sourceFiles.push('!' + config.source.scripts.referenceFile);
 
+    var sources = gulp.src(sourceFiles);
+   
     gulp.src(config.source.scripts.referenceFile)
         .pipe($.inject(sources, {
             starttag: '//{',
@@ -62,7 +65,7 @@ gulp.task('inject-karma', ['inject-typescript'], function () {
 
 });
 
-gulp.task('inject-jade', ['inject-typescript', 'inject-less', 'styles:app', 'styles:themes', 'scripts:app'], function () {
+gulp.task('inject-jade', ['inject-typescript', 'inject-less', 'compile-typescript', 'scripts-app', 'styles-app', 'styles-themes'], function () {
     var angularSources = gulp.src(config.source.root + '/**/*.js').pipe($.angularFilesort());
 
 

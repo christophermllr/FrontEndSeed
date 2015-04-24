@@ -22,12 +22,12 @@ function handleReload(event) {
 // Rerun the task when a file changes
 gulp.task('watch', ['start'], function () {
 
-    gulp.watch(config.source.scripts.watch, ['scripts:app']);
-    gulp.watch(config.source.styles.app.watch, ['styles:app']);
-    gulp.watch(config.source.styles.themes.watch, ['styles:themes']);
-    gulp.watch(config.source.bootstrap.watch, ['styles:app']); //bootstrap
-    gulp.watch(config.source.templates.views.watch, ['templates:views']);
-    gulp.watch(config.source.templates.app.watch, ['templates:app']);
+    gulp.watch(config.source.scripts.watch, ['scripts-app']);
+    gulp.watch(config.source.styles.app.watch, ['styles-app']);
+    gulp.watch(config.source.styles.themes.watch, ['styles-themes']);
+    gulp.watch(config.source.bootstrap.watch, ['styles-app']); //bootstrap
+    gulp.watch(config.source.templates.views.watch, ['templates-views']);
+    gulp.watch(config.source.templates.app.watch, ['templates-app']);
 
     gulp.watch([
         './app/**'

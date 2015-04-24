@@ -17,16 +17,16 @@ function handleError(err) {
 
 gulp.task('templates',
     [
-        'templates:app',
-        'templates:views'
+        'templates-app',
+        'templates-views'
     ]);
 
 
 //Wrapper task for all templates
-gulp.task('templates', ['templates:app', 'templates:views']);
+gulp.task('templates', ['templates-app', 'templates-views']);
 
 // Root App Templates
-gulp.task('templates:app', ['scripts:app', 'styles:app', 'styles:themes', 'bootstrap', 'inject-jade'], function () {
+gulp.task('templates-app', ['scripts-app', 'styles-app', 'styles-themes', 'bootstrap', 'inject-jade'], function () {
     return gulp.src(config.source.templates.app.files)
         .pipe($.jade())
         .on("error", handleError)
@@ -39,7 +39,7 @@ gulp.task('templates:app', ['scripts:app', 'styles:app', 'styles:themes', 'boots
 });
 
 // Views
-gulp.task('templates:views', [ 'scripts:app', 'styles:app', 'styles:themes', 'bootstrap', 'inject-jade'], function () {
+gulp.task('templates-views', [ 'scripts-app', 'styles-app', 'styles-themes', 'bootstrap', 'inject-jade'], function () {
     return gulp.src(config.source.templates.views.files)
         .pipe($.jade())
         .on("error", handleError)

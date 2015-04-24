@@ -18,11 +18,12 @@ require('require-dir')('./gulp');
 gulp.task('start', [
     'inject-typescript',
     'inject-less',
-    'scripts:app',
-    'styles:app',
-    'styles:themes',
-    'templates:app',
-    'templates:views'
+    'compile-typescript',
+    'scripts-app',
+    'styles-app',
+    'styles-themes',
+    'templates-app',
+    'templates-views'
 ]);
 
 // default (run without no minify)

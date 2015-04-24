@@ -11,7 +11,7 @@ var source = {
         typescript: 'src/**/*.ts',
         referenceFile: 'typings/_all.ts',
         typingsFolder: 'typings',
-        typings: [ 'typings/**/*.ts', 'src/**/*.ts', '!typings/_all.ts']
+        typings: ['typings/**/*.ts', 'src/**/*.ts']
     },
     templates: {
         app: {

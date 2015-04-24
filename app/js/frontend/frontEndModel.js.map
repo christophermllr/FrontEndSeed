@@ -1,0 +1,1 @@
+{"version":3,"sources":["src/frontend/frontEndModel.ts"],"names":[],"mappings":"AAAA,8CAA8C;AAM7C","file":"frontend/frontEndModel.js","sourceRoot":"c:/r/FrontEndSeed/","sourcesContent":["/// <reference path='../../typings/_all.ts' />\r\n\r\ninterface IFrontEndModel {\r\n    title: string;\r\n    description: string;\r\n    clicks: number;\r\n}"]}
