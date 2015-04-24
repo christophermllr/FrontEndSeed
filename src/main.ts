@@ -26,6 +26,7 @@
                 }).
                  when('/frontend', {
                      templateUrl: 'views/Frontend/FrontendHome.html',
+                     controller: 'frontEndController as vm',
                  }).
                 otherwise({
                     redirectTo: '/frontend'

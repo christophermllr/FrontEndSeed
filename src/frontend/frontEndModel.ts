@@ -1,4 +1,4 @@
-/// <reference path='../../typings/_all.ts' />
+/// <reference path='../../typings/_all.d.ts' />
 
 interface IFrontEndModel {
     title: string;

@@ -13,11 +13,6 @@ function handleError(err) {
     this.emit('end');
 }
 
-
-// Wrapper task for running all styles
-gulp.task('styles', ['bootstrap', 'styles-app', 'styles-themes']);
-
-
 // APP LESS
 gulp.task('styles-app', ['inject-less'], function () {
     return gulp.src(config.source.styles.app.main)

@@ -9,7 +9,7 @@ var source = {
         app: ['src/**/*.js'],
         watch: ['src/**/*.js'],
         typescript: 'src/**/*.ts',
-        referenceFile: 'typings/_all.ts',
+        referenceFile: 'typings/_all.d.ts',
         typingsFolder: 'typings',
         typings: ['typings/**/*.ts', 'src/**/*.ts']
     },
@@ -26,7 +26,7 @@ var source = {
     styles: {
         app: {
             main: ['src/less/app.less', '!src/less/themes/*.less'],
-            dir: './src/less',
+            dir: 'src/less',
             watch: ['src/**/*.less', '!src/less/themes/**/*.less']
         },
         themes: {

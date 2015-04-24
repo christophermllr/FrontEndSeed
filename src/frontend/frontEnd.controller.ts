@@ -1,16 +1,15 @@
-/// <reference path='../../typings/_all.ts' />
+/// <reference path='../../typings/_all.d.ts' />
+"use strict";
+angular.module('frontEnd').controller('frontEndController', frontEndController);
 
-module FrontEnd {
-    "use strict";
+function frontEndController() {
 
-    export class FrontEndController {
-        model: IFrontEndModel;
-        constructor() {
-            this.model.title = "Front end";
-            this.model.clicks = 0;
-        }
-        public smack(title:string) {
-            this.model.clicks++;
-        }
-    }
+    this.model = {};
+
+    this.model.title = "Front end";
+    this.model.clicks = 0;
+    //smack: function (title: string) {
+    //    this.model.clicks++;
+    //}
 }
+

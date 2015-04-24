@@ -1,9 +1,7 @@
-﻿/// <reference path='../../typings/_all.ts' />
+﻿/// <reference path='../../typings/_all.d.ts' />
 
-module FrontEnd {
-    'use strict';
-    var thisModule = angular.module('frontEnd', []);
-    thisModule.controller('myController', FrontEndController);
-}
+'use strict';
+angular.module('frontEnd', []);
 
-    
+
+

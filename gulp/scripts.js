@@ -15,7 +15,7 @@ function handleError(err) {
 }
 
 // JS APP
-gulp.task('scripts-app', ['inject-typescript'], function () {
+gulp.task('scripts-app', ['compile-typescript'], function () {
     // Minify and copy all JavaScript (except vendor scripts)
     return gulp.src(config.source.scripts.app)
         .pipe($.angularFilesort())

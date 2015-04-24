@@ -5,6 +5,7 @@
 'use strict';
 
 var gulp = require('gulp'),
+    path = require('path'),
     config = require('./config/config'),
     $ = require('gulp-load-plugins')({
         pattern: ['gulp-*', 'main-bower-files', 'wiredep']
@@ -13,7 +14,7 @@ var gulp = require('gulp'),
 var wiredep = $.wiredep.stream;
 
 
-gulp.task('inject-less', ['inject-typescript'], function () {
+gulp.task('inject-less', function () {
 
     //Wire Bower into LESS files
     gulp.src('app/styles/*.less')
@@ -28,7 +29,7 @@ gulp.task('inject-typescript', function () {
     sourceFiles.push('!' + config.source.scripts.referenceFile);
 
     var sources = gulp.src(sourceFiles);
-   
+
     gulp.src(config.source.scripts.referenceFile)
         .pipe($.inject(sources, {
             starttag: '//{',
@@ -66,30 +67,31 @@ gulp.task('inject-karma', ['inject-typescript'], function () {
 });
 
 gulp.task('inject-jade', ['inject-typescript', 'inject-less', 'compile-typescript', 'scripts-app', 'styles-app', 'styles-themes'], function () {
-    var angularSources = gulp.src(config.source.root + '/**/*.js').pipe($.angularFilesort());
-
+    var angularSources = gulp.src(path.join(config.build.scripts.app, '/**/*.js')).pipe($.angularFilesort());
 
     return gulp.src(config.source.templates.app.files, config.source.templates.views.files)
         .pipe($.inject(angularSources, {
             read: false,
+            ignorePath: ".tmp",
             starttag: '//- {{name}}:{{ext}}',
             endtag: '//- endinject',
-            relative: true,
-            addPrefix: 'js'
+            addRootSlash: false,
+
         }))
-      .pipe(wiredep({
-          jade: {
-              block: /(([ \t]*)\/\/\s*bower:*(\S*))(\n|\r|.)*?(\/\/\s*endbower)/gi,
-              detect: {
-                  js: /script\(.*src=['"]([^'"]+)/gi,
-                  css: /link\(.*href=['"]([^'"]+)/gi
-              },
-              replace: {
-                  js: 'script(src=\'{{filePath}}\')',
-                  css: 'link(rel=\'stylesheet\', href=\'{{filePath}}\')'
-              }
-          }
-      }));
+        .pipe(wiredep({
+            jade: {
+                block: /(([ \t]*)\/\/\s*bower:*(\S*))(\n|\r|.)*?(\/\/\s*endbower)/gi,
+                detect: {
+                    js: /script\(.*src=['"]([^'"]+)/gi,
+                    css: /link\(.*href=['"]([^'"]+)/gi
+                },
+                replace: {
+                    js: 'script(src=\'{{filePath}}\')',
+                    css: 'link(rel=\'stylesheet\', href=\'{{filePath}}\')'
+                }
+            }
+        }))
+        .pipe(gulp.dest(config.source.root));
 
 });
 
