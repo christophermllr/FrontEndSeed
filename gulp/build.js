@@ -53,7 +53,7 @@ gulp.task('dev', ['clean-dev'], function () {
 
 
 gulp.task('compile-all', ['compile-assets', 'compile-templates']);
-gulp.task('compile-templates', ['inject-jade'], function () {
+gulp.task('compile-templates', function () {
     $.runSequence(['templates-app', 'templates-views']);
 });
 
