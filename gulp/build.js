@@ -64,7 +64,6 @@ gulp.task('compile-assets', [
     'scripts-app',
     'styles-app',
     'styles-themes',
-    'inject-jade'
 ]);
 
 
