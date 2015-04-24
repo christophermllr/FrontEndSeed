@@ -1,4 +1,4 @@
-/// <reference path='../../typings/_all.d.ts' />
+/// <reference path='../../typings/tsd.d.ts' />
 "use strict";
 angular.module('frontEnd').controller('frontEndController', frontEndController);
 
