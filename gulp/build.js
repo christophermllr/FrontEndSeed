@@ -13,12 +13,11 @@ var gulp = require('gulp'),
 var assets = $.useref.assets();
 
 
-
-gulp.task('compile', function () {
-    $.runSequence('clean-dist', 'dist');
+gulp.task('compile', ['clean-dist'], function () {
+    $.runSequence('dist');
 });
-gulp.task('compile-dev', function () {
-    $.runSequence('clean-dev', 'dev');
+gulp.task('compile-dev', ['clean-dev'], function () {
+    $.runSequence('dev');
 });
 
 
@@ -58,7 +57,7 @@ gulp.task('usesources', function () {
     config.build.useSourceMaps = true;
 });
 
-gulp.task('dev', ['start'], function () {
+gulp.task('dev', ['start', 'templates'], function () {
 
     gulp.src([config.build.html])
         .pipe(assets)
@@ -68,7 +67,7 @@ gulp.task('dev', ['start'], function () {
         .pipe($.revReplace())
         .pipe(gulp.dest(path.join(config.build.root, config.build.devFolder)));
 });
-gulp.task('dist', ['prod', 'start'], function () {
+gulp.task('dist', ['prod', 'start', 'templates'], function () {
 
     gulp.src([config.build.html])
         .pipe(assets)

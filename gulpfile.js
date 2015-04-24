@@ -18,14 +18,16 @@ require('require-dir')('./gulp');
 gulp.task('start', [
     'inject-typescript',
     'inject-less',
+    'inject-jade',
     'compile-typescript',
     'scripts-app',
     'styles-app',
-    'styles-themes',
-    'templates-app',
-    'templates-views'
-]);
+    'styles-themes'], function() {
+        $.runSequence('templates');
+    }
+);
 
+gulp.task('templates', ['templates-app', 'templates-views']);
 // default (run without no minify)
 gulp.task('default', function () {
     $.runSequence(['clean', 'start', 'serve']);

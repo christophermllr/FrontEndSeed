@@ -10,7 +10,7 @@
     function backEnd($log) {
         /* jshint validthis:true */
         var vm = this;
-        vm.title = 'backEnd';
+        vm.title = 'Back end';
 
         activate();
 
