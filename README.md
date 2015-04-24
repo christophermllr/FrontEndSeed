@@ -28,6 +28,13 @@ The build leverages [gulpjs](http://www.gulpjs.com) for automating the build pro
 npm install -g gulp
 ```
 
+### Key gulp tasks
+
+There are several useful tasks  in gulp to get you going, ultimately you can run ``gulp`` and the default task will create a livereload server on port 9000
+
+Other tasks of interest include ``gulp build`` which runs a dist build and places it under the *build\dist* folder, or ``gulp build-dev`` which creates a dev build and places it under the *build\dev* folder
+
+
 ## File Structure
 There are several key files in the file system that are used for the build process.  These are highlighted in the listing below.
 

@@ -14,19 +14,6 @@ var gulpSync = $.sync(gulp);
 //Load related gulp files
 require('require-dir')('./gulp');
 
-gulp.task('compile-all', ['compile-assets', 'compile-templates']);
-gulp.task('compile-templates', ['inject-jade'], function() {
-    $.runSequence(['templates-app', 'templates-views']);
-});
-gulp.task('compile-assets', [
-    'inject-typescript',
-    'inject-less',
-    'compile-typescript',
-    'scripts-app',
-    'styles-app',
-    'styles-themes'
-]);
-
 // default (run without no minify)
 gulp.task('default', function () {
     $.runSequence(['clean', 'compile-all', 'serve']);

@@ -13,10 +13,8 @@ var gulp = require('gulp'),
 var assets = $.useref.assets();
 
 
-gulp.task('build', ['dist', 'clean-dist', 'compile-dist'], function () {
-});
-gulp.task('build-dev', ['dev', 'clean-dev', 'compile-dev'], function () {
-});
+gulp.task('build', ['dist', 'clean-dist', 'compile-dist']);
+gulp.task('build-dev', ['dev', 'compile-dev']);
 
 
 /*
@@ -53,7 +51,24 @@ gulp.task('dev', ['clean-dev'], function () {
 
 
 
-gulp.task('compile-dev', ['dev', 'compile-all'], function () {
+
+gulp.task('compile-all', ['compile-assets', 'compile-templates']);
+gulp.task('compile-templates', ['inject-jade'], function () {
+    $.runSequence(['templates-app', 'templates-views']);
+});
+
+gulp.task('compile-assets', [
+    'inject-typescript',
+    'inject-less',
+    'compile-typescript',
+    'scripts-app',
+    'styles-app',
+    'styles-themes'
+]);
+
+
+
+gulp.task('compile-dev', ['dev', 'compile-assets', 'templates-app', 'templates-views'], function () {
 
     gulp.src([config.build.html])
         .pipe(assets)
@@ -63,7 +78,7 @@ gulp.task('compile-dev', ['dev', 'compile-all'], function () {
         .pipe($.revReplace())
         .pipe(gulp.dest(path.join(config.build.root, config.build.devFolder)));
 });
-gulp.task('compile-dist', ['dist', 'compile-all'], function () {
+gulp.task('compile-dist', ['dist', 'compile-all', 'templates-app', 'templates-views'], function () {
 
     gulp.src([config.build.html])
         .pipe(assets)
