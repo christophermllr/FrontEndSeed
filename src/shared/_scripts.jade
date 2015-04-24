@@ -1,11 +1,29 @@
 block scripts               
     // build:js js/vendor.js    
     // bower:js
+    script(src='../bower_components/jquery/dist/jquery.js')
+    script(src='../bower_components/angular/angular.js')
+    script(src='../bower_components/semantic-ui/dist/semantic.js')
+    script(src='../bower_components/angular-route/angular-route.js')
     // endbower
     // endbuild 
 
     // build:js js/app.js 
     //- inject:js
+
+    script(src="js/main.js")
+
+    script(src="js/navigation/navigation-controller.js")
+
+    script(src="js/frontend/frontend-module.js")
+
+    script(src="js/frontend/frontend-model.js")
+
+    script(src="js/frontend/frontend-controller.js")
+
+    script(src="js/backend/backend.module.js")
+
+    script(src="js/backend/backend.controller.js")
 
     //- endinject
     // endbuild 
