@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="frontEndSeed">
+
+<head>
+   <!-- build:css css/vendor.css -->
+   <!-- bower:css-->
+   <link rel="stylesheet" href="../bower_components/semantic-ui/dist/semantic.css">
+   <!-- endbower-->
+   <!-- endbuild -->
+   <!-- build:css css/app.css -->
+   <link rel="stylesheet" href="css/app.css">
+   <link rel="stylesheet" href="css/theme-1.css">
+   <!-- endbuild -->
+</head>
+
+<body ng-controller="mainController as vm">
+   <h1 class="ui header">Front end seed</h1>
+   <div ng-controller="navigationController" class="ui menu"><a ng-href="#/backend" ng-class="{active: isActive('/backend')}" class="teal item">yo</a><a ng-href="#/frontend" ng-class="{active: isActive('/frontend')}" class="teal item">yo2</a>
+   </div>
+   <div class="ui segment">
+      <p>This is a test of the jade template engine and Gulp build process</p>
+   </div>
+   <div class="basic ui segment">
+      <div ng-view></div>
+   </div>
+   <!-- build:js js/vendor.js    -->
+   <!-- bower:js-->
+   <script src="../bower_components/jquery/dist/jquery.js"></script>
+   <script src="../bower_components/angular/angular.js"></script>
+   <script src="../bower_components/semantic-ui/dist/semantic.js"></script>
+   <script src="../bower_components/angular-route/angular-route.js"></script>
+   <!-- endbower             -->
+   <!-- endbuild -->
+   <!-- build:js js/app.js -->
+   <script src="js/main.js"></script>
+   <script src="js/navigation/navigation-controller.js"></script>
+   <script src="js/frontend/frontEndModel.js"></script>
+   <script src="js/frontend/frontEnd.module.js"></script>
+   <script src="js/frontend/frontEnd.controller.js"></script>
+   <script src="js/backend/backend.module.js"></script>
+   <script src="js/backend/backEnd.controller.js"></script>
+   <!-- endbuild -->
+</body>
+
+</html>
