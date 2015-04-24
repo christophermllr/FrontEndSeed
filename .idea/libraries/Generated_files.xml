@@ -3,10 +3,13 @@
     <properties>
       <sourceFilesUrls>
         <item url="file://$PROJECT_DIR$/typings/_all.js" />
-        <item url="file://$PROJECT_DIR$/src/Frontend/frontEnd.module.js" />
-        <item url="file://$PROJECT_DIR$/src/Frontend/frontEnd.controller.js" />
-        <item url="file://$PROJECT_DIR$/src/Frontend/frontEndModel.js" />
-        <item url="file://$PROJECT_DIR$/src/scripts/_all.js" />
+        <item url="file://$PROJECT_DIR$/src/frontend/frontend-module.js" />
+        <item url="file://$PROJECT_DIR$/src/frontend/frontEnd.module.js" />
+        <item url="file://$PROJECT_DIR$/src/frontend/frontEnd.controller.js" />
+        <item url="file://$PROJECT_DIR$/src/frontend/frontEndModel.js" />
+        <item url="file://$PROJECT_DIR$/src/main.js" />
+        <item url="file://$PROJECT_DIR$/src/frontend/frontend-controller.js" />
+        <item url="file://$PROJECT_DIR$/src/frontend/frontend-model.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
@@ -15,6 +18,14 @@
       <root url="file://$PROJECT_DIR$/src/Frontend/frontEnd.controller.js" />
       <root url="file://$PROJECT_DIR$/src/Frontend/frontEndModel.js" />
       <root url="file://$PROJECT_DIR$/src/scripts/_all.js" />
+      <root url="file://$PROJECT_DIR$/typings/_all.js" />
+      <root url="file://$PROJECT_DIR$/src/frontend/frontend-module.js" />
+      <root url="file://$PROJECT_DIR$/src/Frontend/frontEnd.module.js" />
+      <root url="file://$PROJECT_DIR$/src/Frontend/frontEnd.controller.js" />
+      <root url="file://$PROJECT_DIR$/src/Frontend/frontEndModel.js" />
+      <root url="file://$PROJECT_DIR$/src/main.js" />
+      <root url="file://$PROJECT_DIR$/src/frontend/frontend-controller.js" />
+      <root url="file://$PROJECT_DIR$/src/frontend/frontend-model.js" />
     </CLASSES>
     <SOURCES />
   </library>

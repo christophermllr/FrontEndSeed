@@ -1,4 +1,9 @@
-h2 Front
-p Welcome to the demo page
+h2.ui.header {{ vm.model.title }}
+    .sub.header {{ vm.model.description }}
+
+.ui.segment
     button.ui.button(ng-click='vm.smack()') smack!
-pre {{ vm | json }}
+
+.ui.segment
+    h3 Model
+    pre {{ vm | json }}

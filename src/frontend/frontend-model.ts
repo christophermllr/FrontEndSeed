@@ -1,7 +1,8 @@
 /// <reference path='../../typings/tsd.d.ts' />
-
-interface IFrontEndModel {
-    title: string;
-    description: string;
-    clicks: number;
+module FrontEnd {
+    export interface IFrontEndModel {
+        title: string;
+        description: string;
+        clicks: number;
+    }
 }
