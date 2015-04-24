@@ -7,7 +7,6 @@
     "tempFolder": ".tmp",
     "html": ".tmp/**/*.html",
     "styles": "./.tmp/css",
-
      "scripts": {
         "app": "./.tmp/js",
         "vendor": ""
