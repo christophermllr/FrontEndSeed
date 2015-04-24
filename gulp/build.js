@@ -13,22 +13,33 @@ var gulp = require('gulp'),
 var assets = $.useref.assets();
 
 
+
+gulp.task('compile', function () {
+    $.runSequence('clean-dist', 'dist');
+});
+gulp.task('compile-dev', function () {
+    $.runSequence('clean-dev', 'dev');
+});
+
+
 /*
  * Cleans output files and temporary files
  */
 gulp.task('clean', function () {
     $.del.sync([
-        config.build.tempFolder,
-        config.build.distFolder,
-        config.build.devFolder
+        config.build.tempFolder
     ]);
 });
 
-gulp.task('compile', function () {
-    $.runSequence('clean', 'dist');
+gulp.task('clean-dev', ['clean'], function () {
+    $.del.sync([
+      path.join(config.build.root, config.build.devFolder)
+    ]);
 });
-gulp.task('compile-dev', function () {
-    $.runSequence('clean', 'dev');
+gulp.task('clean-dist', ['clean'], function () {
+    $.del.sync([
+      path.join(config.build.root, config.build.distFolder)
+    ]);
 });
 
 
@@ -61,7 +72,9 @@ gulp.task('dist', ['prod', 'start'], function () {
 
     gulp.src([config.build.html])
         .pipe(assets)
+        .pipe($.rev())
         .pipe(assets.restore())
         .pipe($.useref())
+        .pipe($.revReplace())
         .pipe(gulp.dest(path.join(config.build.root, config.build.distFolder)));
 });
