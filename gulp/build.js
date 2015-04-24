@@ -63,12 +63,13 @@ gulp.task('compile-assets', [
     'compile-typescript',
     'scripts-app',
     'styles-app',
-    'styles-themes'
+    'styles-themes',
+    'inject-jade'
 ]);
 
 
 
-gulp.task('compile-dev', ['dev', 'compile-assets', 'templates-app', 'templates-views'], function () {
+gulp.task('compile-dev', ['dev', 'compile-all', 'templates-app', 'templates-views'], function () {
 
     gulp.src([config.build.html])
         .pipe(assets)
