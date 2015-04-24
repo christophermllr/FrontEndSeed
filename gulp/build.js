@@ -7,7 +7,7 @@ var gulp = require('gulp'),
     path = require('path'),
     config = require('./config/config'),
     $ = require('gulp-load-plugins')({
-        pattern: ['gulp-*', 'del']
+        pattern: ['gulp-*', 'del', 'run-sequence']
     });
 
 var assets = $.useref.assets();
@@ -17,18 +17,19 @@ var assets = $.useref.assets();
  * Cleans output files and temporary files
  */
 gulp.task('clean', function () {
-    $.del([
+    $.del.sync([
         config.build.tempFolder,
+        config.build.appFolder,
         config.build.distFolder,
-        config.build.appFolder
+        config.build.devFolder
     ]);
 });
 
-gulp.task('compile', ['dist'], function () {
-    
+gulp.task('compile', function () {
+    $.runSequence('clean', 'dist');
 });
-gulp.task('compile-dev', ['dev'], function () {
-
+gulp.task('compile-dev', function () {
+    $.runSequence('clean', 'dev');
 });
 
 

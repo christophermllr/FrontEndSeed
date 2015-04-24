@@ -3,7 +3,7 @@
 module FrontEnd {
     'use strict';
     var thisModule = angular.module('frontEnd', []);
-    thisModule.controller('myController', frontEndController);
+    thisModule.controller('myController', FrontEndController);
 }
 
     

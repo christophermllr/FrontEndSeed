@@ -6,7 +6,7 @@
 var gulp = require('gulp'),
     config = require('./gulp/config/config'),
     $ = require('gulp-load-plugins')({
-        pattern: ['gulp-*']
+        pattern: ['gulp-*', 'run-sequence']
     });
 
 var gulpSync = $.sync(gulp);
@@ -16,7 +16,6 @@ require('require-dir')('./gulp');
 
 
 gulp.task('start', [
-    'clean',
     'inject-typescript',
     'inject-less',
     'scripts:app',
@@ -27,7 +26,8 @@ gulp.task('start', [
 ]);
 
 // default (run without no minify)
-gulp.task('default', ['start', 'serve'], function () {
+gulp.task('default', function () {
+    $.runSequence(['clean', 'start', 'serve']);
     $.util.log($.util.colors.cyan('************'));
     $.util.log($.util.colors.cyan('* All Done *'), 'You can start editing your code, LiveReload will update your browser after any change..');
     $.util.log($.util.colors.cyan('************'));

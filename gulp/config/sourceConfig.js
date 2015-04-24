@@ -26,8 +26,8 @@ var source = {
     styles: {
         app: {
             main: ['src/less/app.less', '!src/less/themes/*.less'],
-            dir: 'src/less',
-            watch: ['src/**/*.less', '!src/less/themes/*.less']
+            dir: './src/less',
+            watch: ['src/**/*.less', '!src/less/themes/**/*.less']
         },
         themes: {
             main: ['src/less/themes/*.less', ignored_files],

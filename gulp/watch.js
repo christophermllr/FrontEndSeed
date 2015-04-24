@@ -20,7 +20,7 @@ function handleReload(event) {
 //---------------
 
 // Rerun the task when a file changes
-gulp.task('watch', function () {
+gulp.task('watch', ['start'], function () {
 
     gulp.watch(config.source.scripts.watch, ['scripts:app']);
     gulp.watch(config.source.styles.app.watch, ['styles:app']);
