@@ -1,50 +1,17 @@
 doctype html
 html(lang="en", ng-app='frontEndSeed')
+    
+    include shared/_head.jade
 
-    head
-        block styles
-            // build:css css/vendor.css 
-            // bower:css
-            link(rel='stylesheet', href='../bower_components/semantic-ui/dist/semantic.css')
-            // endbower
-            // endbuild 
-            
-            // build:css css/app.css 
-            link(rel='stylesheet', href='css/app.css')
-            link(rel='stylesheet', href='css/theme-1.css')
-            // endbuild 
     body(ng-controller='mainController as vm')    
 
         h1.ui.header Front end seed
 
-        div.ui.menu(ng-controller="navigationController")
-            a.teal.item(ng-href="#/backend", ng-class="{active: isActive('/backend')}") yo
-            a.teal.item(ng-href="#/frontend", ng-class="{active: isActive('/frontend')}" ) yo2
-           
+        include navigation/navigation.jade
+         
         div.ui.segment
             p This is a test of the jade template engine and Gulp build process
         div.basic.ui.segment
             div(ng-view)
 
-        block scripts
-               
-            // build:js js/vendor.js    
-            // bower:js
-            script(src='../bower_components/jquery/dist/jquery.js')
-            script(src='../bower_components/angular/angular.js')
-            script(src='../bower_components/semantic-ui/dist/semantic.js')
-            script(src='../bower_components/angular-route/angular-route.js')
-            // endbower             
-            // endbuild 
-
-            // build:js js/app.js 
-            //- inject:js
-            script(src="js/main.js")
-            script(src="js/navigation/navigation-controller.js")
-            script(src="js/frontend/frontend-module.js")
-            script(src="js/frontend/frontend-model.js")
-            script(src="js/frontend/frontend-controller.js")
-            script(src="js/backend/backend.module.js")
-            script(src="js/backend/backend.controller.js")
-            //- endinject
-            // endbuild 
+       include shared/_scripts.jade

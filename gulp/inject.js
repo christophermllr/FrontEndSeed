@@ -69,7 +69,9 @@ gulp.task('inject-karma', ['inject-typescript'], function () {
 gulp.task('inject-jade', ['inject-typescript', 'inject-less', 'compile-typescript', 'scripts-app', 'styles-app', 'styles-themes'], function () {
     var angularSources = gulp.src(path.join(config.build.scripts.app, '/**/*.js')).pipe($.angularFilesort());
 
-    return gulp.src(config.source.templates.app.files, config.source.templates.views.files)
+
+    return gulp.src(config.source.templates.all)
+        .pipe($.debug())
         .pipe($.inject(angularSources, {
             read: false,
             ignorePath: ".tmp",
