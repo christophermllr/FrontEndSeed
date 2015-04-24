@@ -21,11 +21,11 @@
                     
                 }).
                 when('/backend', {
-                    templateUrl: 'views/Backend/BackendHome.html',
+                    templateUrl: 'views/backend/backend-home.html',
                     controller: 'backEndController as vm',
                 }).
                  when('/frontend', {
-                     templateUrl: 'views/Frontend/FrontendHome.html',
+                     templateUrl: 'views/frontend/frontend-home.html',
                      controller: 'frontEndController as vm',
                  }).
                 otherwise({
