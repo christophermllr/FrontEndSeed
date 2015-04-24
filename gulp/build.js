@@ -34,7 +34,7 @@ gulp.task('compile-dev', function () {
 
 
 // Set is production build flag
-// build for production (minify)
+// build for productigulon (minify)
 gulp.task('build', ['prod', 'default']);
 
 gulp.task('prod', function () {

@@ -21,12 +21,12 @@ gulp.task('styles', ['bootstrap', 'styles:app', 'styles:themes']);
 // APP LESS
 gulp.task('styles:app', function () {
     return gulp.src(config.source.styles.app.main)
-        //.pipe(config.build.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
+        .pipe(config.build.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
         .pipe($.less({
             paths: [config.source.styles.app.dir]
         }))
-        //.pipe(config.build.isProduction ? $.minifyCss() : $.util.noop())
-        //.pipe(config.build.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
+        .pipe(config.build.isProduction ? $.minifyCss() : $.util.noop())
+        .pipe(config.build.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
         .pipe(gulp.dest(config.build.styles));
 });
 
