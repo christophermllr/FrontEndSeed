@@ -80,6 +80,7 @@ gulp.task('inject-jade', ['inject-typescript', 'inject-less', 'compile-typescrip
 
         }))
         .pipe(wiredep({
+            ignorePath:'../',
             jade: {
                 block: /(([ \t]*)\/\/\s*bower:*(\S*))(\n|\r|.)*?(\/\/\s*endbower)/gi,
                 detect: {
