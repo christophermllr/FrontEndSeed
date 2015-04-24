@@ -1,15 +1,27 @@
 /// <reference path='../../typings/tsd.d.ts' />
-"use strict";
-angular.module('frontEnd').controller('frontEndController', frontEndController);
 
-function frontEndController() {
+module FrontEnd {
 
-    this.model = {};
+    "use strict";
 
-    this.model.title = "Front end";
-    this.model.clicks = 0;
-    this.smack = function () {
-        this.model.clicks++;
+
+    export class FrontEndController {
+        
+        constructor($log) {
+            $log.info('instantiate front end controller');
+            this.model = {};
+            this.model.title = "Front end";
+            this.model.description = "A front end model";
+            this.model.clicks = 0;
+        }
+
+        public smack() {
+            this.model.clicks++;
+        }
     }
-}
 
+    angular
+        .module('frontEnd')
+        .controller('frontEndController', FrontEnd.FrontEndController);
+
+}

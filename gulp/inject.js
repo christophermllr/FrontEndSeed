@@ -71,7 +71,6 @@ gulp.task('inject-jade', ['inject-typescript', 'inject-less', 'compile-typescrip
 
 
     return gulp.src(config.source.templates.all)
-        .pipe($.debug())
         .pipe($.inject(angularSources, {
             read: false,
             ignorePath: ".tmp",

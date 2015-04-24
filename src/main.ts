@@ -1,17 +1,9 @@
-﻿(function () {
+﻿/// <reference path="../typings/tsd.d.ts"/>
+
+module FrontEndSeed {
     'use strict';
 
-    var frontEndSeed = angular.module('frontEndSeed', [
-    // Angular modules 
-    //'ngAnimate',
-        'ngRoute',
-
-    // Custom modules 
-        'backEnd',
-        'frontEnd'
-
-        // 3rd Party Modules
-    ]);
+    var frontEndSeed = angular.module('frontEndSeed', ['ngRoute', 'backEnd', 'frontEnd']);
 
     frontEndSeed.config([
         '$routeProvider', function ($routeProvider) {
@@ -40,4 +32,3 @@
         }
     ]);
 }
-    )()

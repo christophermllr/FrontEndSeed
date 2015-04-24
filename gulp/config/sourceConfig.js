@@ -9,7 +9,7 @@ var source = {
         app: ['src/**/*.js'],
         watch: ['src/**/*.js'],
         typescript: 'src/**/*.ts',
-        referenceFile: 'typings/_all.d.ts',
+        referenceFile: 'typings/tsd.d.ts',
         typingsFolder: 'typings',
         typings: ['typings/**/*.ts', 'src/**/*.ts']
     },
