@@ -20,13 +20,12 @@ gulp.task('scripts-app', ['inject-typescript'], function () {
     return gulp.src(config.source.scripts.app)
         .pipe($.angularFilesort())
         .pipe(config.build.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
-        //.pipe($.concat(build.scripts.app.main))
         .pipe(config.build.isProduction ? $.ngAnnotate() : $.util.noop())
         .on("error", handleError)
         .pipe(config.build.isProduction ? $.uglify({preserveComments: 'some'}) : $.util.noop())
         .on("error", handleError)
         .pipe(config.build.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
-        .pipe(gulp.dest(config.build.scripts.app.dir));
+        .pipe(gulp.dest(config.build.scripts.app));
 });
 
 // VENDOR BUILD

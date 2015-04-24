@@ -19,7 +19,6 @@ var assets = $.useref.assets();
 gulp.task('clean', function () {
     $.del.sync([
         config.build.tempFolder,
-        config.build.appFolder,
         config.build.distFolder,
         config.build.devFolder
     ]);
@@ -50,15 +49,17 @@ gulp.task('usesources', function () {
 
 gulp.task('dev', ['start'], function () {
 
-    gulp.src([config.build.html.all])
+    gulp.src([config.build.html])
         .pipe(assets)
+        .pipe($.rev())
         .pipe(assets.restore())
         .pipe($.useref())
+        .pipe($.revReplace())
         .pipe(gulp.dest(path.join(config.build.root, config.build.devFolder)));
 });
 gulp.task('dist', ['prod', 'start'], function () {
 
-    gulp.src([config.build.html.all])
+    gulp.src([config.build.html])
         .pipe(assets)
         .pipe(assets.restore())
         .pipe($.useref())

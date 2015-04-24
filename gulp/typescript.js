@@ -30,8 +30,8 @@ gulp.task('compile-typescript', ['inject-typescript'], function () {
                            noExternalResolve: true
                        }));
 
-    tsResult.dts.pipe(gulp.dest(config.build.scripts.app.dir));
+    tsResult.dts.pipe(gulp.dest(config.build.scripts.app));
     return tsResult.js
                     .pipe($.sourcemaps.write('.'))
-                    .pipe(gulp.dest(config.build.scripts.app.dir));
+                    .pipe(gulp.dest(config.build.scripts.app));
 });

@@ -1,26 +1,19 @@
 {
     "isProduction": false,
     "useSourceMaps": true,
-    "root": ".",
+    "root": "./build",
     "distFolder": "dist",
     "devFolder": "dev",
     "tempFolder": ".tmp",
-    "appFolder": "./app",
-    "html": {
-        "main": "app/index.html",
-        "all":  "app/**/*.html",
-        "pages": "app/views/**/*.html"
-    },
+    "html": ".tmp/**/*.html",
+    "styles": "./.tmp/css",
 
-    "scripts": {
-        "app": {
-            "main": "app.js",
-            "dir": "./app/js"
-        }
+     "scripts": {
+        "app": "./.tmp/js",
+        "vendor": ""
     },
-    "styles": "./app/css",
     "templates": {
-        "app": "./app",
-        "views": "./app/views"
+        "app": "./.tmp",
+        "views": "./.tmp/views"
     }
 }
