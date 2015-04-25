@@ -82,6 +82,7 @@ gulp.task('compile-dist', ['dist', 'compile-all', 'templates-app', 'templates-vi
 
     gulp.src([config.build.html])
         .pipe(assets)
+        .pipe($.if('*.js', $.uglify()))
         .pipe($.rev())
         .pipe(assets.restore())
         .pipe($.useref())
