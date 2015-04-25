@@ -3,26 +3,26 @@
 module FrontEndSeed {
     'use strict';
 
-    var frontEndSeed = angular.module('frontEndSeed', ['ngRoute', 'backEnd', 'frontEnd']);
+    var frontEndSeed = angular.module('frontEndSeed', ['ngRoute', 'backEnd', 'frontEnd', 'ui.router']);
 
     frontEndSeed.config([
-        '$routeProvider', function ($routeProvider) {
-            $routeProvider.
-                when('/', {
-                    redirectTo: '/backend',
+        '$stateProvider', function ($stateProvider) {
+            $stateProvider.
+                state('home', {
+                    url: '/',
+                    redirectTo: '/backend'
 
                 }).
-                when('/backend', {
+                state('backend', {
+                    url: '/backend',
                     templateUrl: 'views/backend/backend-home.html',
                     controller: 'backEndController as vm',
                 }).
-                when('/frontend', {
+                state('frontend', {
+                    url: '/frontend',
                     templateUrl: 'views/frontend/frontend-home.html',
                     controller: 'frontEndController as vm',
-                }).
-                otherwise({
-                    redirectTo: '/frontend'
-                });
+                })
 
         }
     ]);
