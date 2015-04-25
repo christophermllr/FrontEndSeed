@@ -87,6 +87,7 @@ gulp.task('compile-dist', ['dist', 'compile-all', 'templates-app', 'templates-vi
         .pipe(assets.restore())
         .pipe($.useref())
         .pipe($.revReplace())
+        .pipe($.minifyHtml())
         .pipe(gulp.dest(path.join(config.build.root, config.build.distFolder)));
 });
 
