@@ -14,22 +14,17 @@ function handleError(err) {
     this.emit('end');
 }
 
-// JS APP
-gulp.task('scripts-app', ['compile-typescript'], function () {
-    // Minify and copy all JavaScript (except vendor scripts)
+// Javscript Application files
+gulp.task('scripts-app', function () {
+
     return gulp.src(config.source.scripts.app)
         .pipe($.angularFilesort())
         .pipe(config.build.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
-        .pipe(config.build.isProduction ? $.ngAnnotate() : $.util.noop())
-        .on("error", handleError)
+        .pipe($.ngAnnotate())
         .pipe(config.build.isProduction ? $.uglify({preserveComments: 'some'}) : $.util.noop())
-        .on("error", handleError)
         .pipe(config.build.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
         .pipe(gulp.dest(config.build.scripts.app));
 });
-
-// VENDOR BUILD
-gulp.task('scripts:vendor', ['scripts:vendor:base', 'scripts:vendor:app']);
 
 //  This will be included vendor files statically
 gulp.task('scripts:vendor:base', ['inject-typescript'], function () {

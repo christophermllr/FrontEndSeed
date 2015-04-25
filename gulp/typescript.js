@@ -17,7 +17,7 @@ gulp.task('ts-lint', function () {
  * Compile TypeScript and include references to library and app .d.ts files.
  */
 gulp.task('compile-typescript', function () {
-    var sourceTsFiles = [config.source.scripts.typescript,                //path to typescript files                         
+    var sourceTsFiles = [config.source.scripts.typescript,         //path to typescript files
                          config.source.scripts.referenceFile];     //reference to app.d.ts files
 
     sourceTsFiles = sourceTsFiles.concat(config.source.scripts.typings);
@@ -32,6 +32,7 @@ gulp.task('compile-typescript', function () {
 
     tsResult.dts.pipe(gulp.dest(config.build.scripts.app));
     return tsResult.js
-                    .pipe($.sourcemaps.write('.'))
+                    .pipe(config.build.isProduction ? $.uglify({preserveComments: 'some'}) : $.util.noop())
+                    .pipe($.sourcemaps.write())
                     .pipe(gulp.dest(config.build.scripts.app));
 });
