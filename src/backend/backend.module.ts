@@ -3,5 +3,7 @@
 module BackEnd {
 
     'use strict';
-    angular.module('backEnd', []);
+
+    var backendModule = angular.module('backEnd', [])
+        .controller('backEndController', BackEndController);
 }

@@ -16,12 +16,12 @@ module FrontEndSeed {
                 state('backend', {
                     url: '/backend',
                     templateUrl: 'views/backend/backend-home.html',
-                    controller: 'backEndController as vm',
+                    controller: 'backEndController as vm'
                 }).
                 state('frontend', {
                     url: '/frontend',
                     templateUrl: 'views/frontend/frontend-home.html',
-                    controller: 'frontEndController as vm',
+                    controller: 'frontEndController as vm'
                 })
 
         }

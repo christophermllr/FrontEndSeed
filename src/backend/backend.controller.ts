@@ -8,17 +8,17 @@ module BackEnd {
     export class BackEndController {
         public title:string;
 
-        constructor(private $log) {
+        constructor(private $log: angular.ILogService) {
             this.title = 'Back end';
             this.activate();
         }
 
         private activate() {
+            this.$log.info('activating back end controller');
         }
-    }
 
-    angular
-        .module('backEnd')
-        .controller('backEndController', BackEnd.BackEndController);
+    }
+    var backendModule = angular.module('backEnd')
+        .controller('backEndController', BackEndController);
 
 }
