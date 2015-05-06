@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="frontEndSeed">
+
+<head>
+   <link rel="stylesheet" href="css/vendor-b33b3d0c.css">
+   <link rel="stylesheet" href="css/app-d410b548.css">
+</head>
+
+<body ng-controller="mainController as vm">
+   <div class="ui page grid">
+      <div class="sixteen wide column">
+         <h1 class="ui header">Front end seed
+            <div class="sub header">A test of the jade template engine and Gulp build process</div>
+         </h1>
+         <div ng-controller="navigationController" class="ui menu"><a ui-sref="backend" ui-sref-active="active" class="teal item">yo</a><a ui-sref="frontend" ui-sref-active="active" class="teal item">yo2</a>
+         </div>
+         <div class="basic ui segment">
+            <div ui-view></div>
+         </div>
+      </div>
+   </div>
+</body>
+<script src="js/vendor-f45945dc.js"></script>
+<script src="js/app-f2967aa8.js"></script>
+
+</html>

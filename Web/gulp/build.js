@@ -27,13 +27,20 @@ gulp.task('clean', function () {
 });
 
 gulp.task('clean-dev', ['clean'], function () {
-    $.del.sync([
-      path.join(config.build.root, config.build.devFolder)
-    ]);
+
+    var delPaths = [];
+    //config.build.cleanItems.foreach(function (item) {
+    //    delPaths.push(path.join(config.build.root, config.build.distFolder, item));
+    //});
+    for(var key in config.build.cleanItems)
+    {
+        delPaths.push(path.join(config.build.root, config.build.distFolder, config.build.cleanItems[key]));
+    }
+    $.del.sync(delPaths);
 });
 gulp.task('clean-dist', ['clean'], function () {
     $.del.sync([
-      path.join(config.build.root, config.build.distFolder)
+   //   path.join(config.build.root, config.build.distFolder)
     ]);
 });
 

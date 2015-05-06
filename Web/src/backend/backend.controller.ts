@@ -7,6 +7,9 @@ module BackEnd {
 
     export class BackEndController {
         public title:string;
+        
+        static $inject = ["$log"];
+
 
         constructor(private $log: angular.ILogService) {
             this.title = 'Back end';

@@ -12,7 +12,7 @@ var gulp = require('gulp'),
 function handleError(err) {
     console.log(err.toString());
     this.emit('end');
-}
+}   
 
 // Javscript Application files
 gulp.task('scripts-app', function () {
