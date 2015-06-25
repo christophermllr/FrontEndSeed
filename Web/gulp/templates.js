@@ -16,7 +16,7 @@ function handleError(err) {
 }
 
 // Root App Templates
-gulp.task('templates-app', function () {
+gulp.task('templates', function () {
     gulp.src(config.source.templates.all)
         .pipe($.jade())
         .on("error", handleError)

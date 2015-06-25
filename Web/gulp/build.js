@@ -85,7 +85,7 @@ gulp.task('compile-dev', ['dev', 'compile-all', 'templates'], function () {
         .pipe($.revReplace())
         .pipe(gulp.dest(path.join(config.build.root, config.build.devFolder)));
 });
-gulp.task('compile-dist', ['dist', 'compile-all', 'templates-app'], function () {
+gulp.task('compile-dist', ['dist', 'compile-all', 'templates'], function () {
 
     gulp.src([config.build.html])
         .pipe(assets)
