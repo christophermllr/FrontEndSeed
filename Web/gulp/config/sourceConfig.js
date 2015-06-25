@@ -14,15 +14,7 @@ var source = {
         typings: ['typings/**/*.ts', 'src/**/*.ts']
     },
     templates: {
-        all: ['src/**/*.jade'],
-        app: {
-            files: ['src/index.jade'],
-            watch: ['src/index.jade', hidden_files]
-        },
-        views: {
-            files: ['src/**/*.jade', ignored_files, '!src/index.jade'],
-            watch: ['src/**/*.jade']
-        },
+        all: ['src/**/*.jade'],        
     },
     styles: {
         app: {

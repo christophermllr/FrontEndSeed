@@ -27,8 +27,7 @@ gulp.task('watch', ['compile-all'], function () {
     gulp.watch(config.source.styles.app.watch, ['styles-app']);
     gulp.watch(config.source.styles.themes.watch, ['styles-themes']);
     gulp.watch(config.source.bootstrap.watch, ['styles-app']); //bootstrap
-    gulp.watch(config.source.templates.views.watch, ['templates-views']);
-    gulp.watch(config.source.templates.app.watch, ['templates-app']);
+    gulp.watch(config.source.templates.all, ['templates']);
 
     gulp.watch([
         './.tmp/**'
