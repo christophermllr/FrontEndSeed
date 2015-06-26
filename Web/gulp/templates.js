@@ -16,8 +16,8 @@ function handleError(err) {
 }
 
 // Root App Templates
-gulp.task('templates-app', function () {
-    gulp.src(config.source.templates.app.files)
+gulp.task('templates', function () {
+    gulp.src(config.source.templates.all)
         .pipe($.jade())
         .on("error", handleError)
         .pipe($.htmlPrettify({
@@ -27,17 +27,3 @@ gulp.task('templates-app', function () {
         }))
         .pipe(gulp.dest(config.build.templates.app));
 });
-
-// Views
-gulp.task('templates-views', function () {
-    gulp.src(config.source.templates.views.files)
-        .pipe($.jade())
-        .on("error", handleError)
-        .pipe($.htmlPrettify({
-            indent_char: ' ',
-            indent_size: 3,
-            unformatted: ['a', 'sub', 'sup', 'b', 'i', 'u']
-        }))
-        .pipe(gulp.dest(config.build.templates.views));
-});
-

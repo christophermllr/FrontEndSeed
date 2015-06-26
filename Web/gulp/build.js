@@ -61,7 +61,7 @@ gulp.task('dev', ['clean-dev'], function () {
 
 gulp.task('compile-all', ['compile-assets', 'compile-templates']);
 gulp.task('compile-templates', function () {
-    $.runSequence(['templates-app', 'templates-views']);
+    $.runSequence(['templates']);
 });
 
 gulp.task('compile-assets', [
@@ -75,7 +75,7 @@ gulp.task('compile-assets', [
 
 
 
-gulp.task('compile-dev', ['dev', 'compile-all', 'templates-app', 'templates-views'], function () {
+gulp.task('compile-dev', ['dev', 'compile-all', 'templates'], function () {
 
     gulp.src([config.build.html])
         .pipe(assets)
@@ -85,7 +85,7 @@ gulp.task('compile-dev', ['dev', 'compile-all', 'templates-app', 'templates-view
         .pipe($.revReplace())
         .pipe(gulp.dest(path.join(config.build.root, config.build.devFolder)));
 });
-gulp.task('compile-dist', ['dist', 'compile-all', 'templates-app', 'templates-views'], function () {
+gulp.task('compile-dist', ['dist', 'compile-all', 'templates'], function () {
 
     gulp.src([config.build.html])
         .pipe(assets)
