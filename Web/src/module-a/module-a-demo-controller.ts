@@ -1,16 +1,16 @@
 /// <reference path='../../typings/tsd.d.ts' />
 
-module FrontEnd {
+module ModuleA {
 
     "use strict";
-    export class FrontEndModel implements IFrontEndModel {
+    export class DemoModel implements IDemoModel {
         constructor(public title?:string, public description?:string, public clicks?:number){
 
         }
     }
-    export class FrontEndController {
+    export class DemoController {
 
-        public model: IFrontEndModel;
+        public model: IDemoModel;
 
         public static $inject = [
             '$log'
@@ -19,13 +19,13 @@ module FrontEnd {
         constructor(private $log : ng.ILogService) {
             $log.info('instantiate front end controller');
 
-            this.model = new FrontEndModel();
+            this.model = new DemoModel();
             this.activate();
         }
         private activate(){
             this.$log.info('activating front end controller');
-            this.model.title = "Front end";
-            this.model.description = "A front end model";
+            this.model.title = "Module A";
+            this.model.description = "A demo module";
             this.model.clicks = 0;
 
         }
@@ -35,7 +35,7 @@ module FrontEnd {
     }
 
     angular
-        .module('frontEnd')
-        .controller('frontEndController', FrontEnd.FrontEndController);
+        .module('ModuleA')
+        .controller('demoController', DemoController);
 
 }
