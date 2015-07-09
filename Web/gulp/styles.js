@@ -17,9 +17,7 @@ function handleError(err) {
 gulp.task('styles-app', ['inject-less'], function () {
     return gulp.src(config.source.styles.app.main)
         .pipe(config.build.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
-        .pipe($.less({
-            paths: [config.source.styles.app.dir]
-        }))
+        .pipe($.less())
         .pipe(config.build.isProduction ? $.minifyCss() : $.util.noop())
         .pipe(config.build.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
         .pipe(gulp.dest(config.build.styles));
@@ -39,9 +37,7 @@ gulp.task('styles-themes', ['inject-less'], function () {
 // BOOSTRAP
 gulp.task('bootstrap', function () {
     return gulp.src(config.source.bootstrap.main)
-        .pipe($.less({
-            paths: [config.source.bootstrap.dir]
-        }))
+        .pipe($.less())
         .on("error", handleError)
         .pipe(gulp.dest(config.build.styles));
 });
