@@ -18,9 +18,8 @@ gulp.task('inject-less', function () {
 
     //Wire Bower into LESS files
     gulp.src('src/less/app.less')
-        .pipe(wiredep({
-            directory: config.source.bowerDir
-        }))
+        .pipe($.debug())
+        .pipe(wiredep())
         .pipe(gulp.dest('src/less'));
 });
 
