@@ -17,11 +17,11 @@ var wiredep = $.wiredep.stream;
 gulp.task('inject-less', function () {
 
     //Wire Bower into LESS files
-    gulp.src('app/styles/*.less')
+    gulp.src('src/less/app.less')
         .pipe(wiredep({
             directory: config.source.bowerDir
         }))
-        .pipe(gulp.dest(config.build.styles));
+        .pipe(gulp.dest('src/less'));
 });
 
 gulp.task('inject-typescript', function () {

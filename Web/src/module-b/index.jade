@@ -1,0 +1,70 @@
+.ui.attached.segment
+    .ui.basic.clearing.segment
+        .ui.left.floated.header
+            i.book.icon
+            .content Project XYZ
+                .sub.header Default rates
+        .ui.right.floated.tiny.statistic
+            .value 15%
+            .label Contingency
+    .ui.three.cards
+        .card.green 
+            .content                 
+                .header Low
+                .meta 
+                    $150.00 Blended rate
+                    .right.floated 30% discount
+             .clearing.content
+                .ui.right.floated.statistic 
+                    .value $150,000
+        .card.green
+            .content 
+                .header Medium
+                .meta 
+                    $160.00 Blended rate
+                    .right.floated 20% discount
+             .clearing.content
+                .ui.right.floated.statistic 
+                    .value $200,000
+        .card 
+            .content 
+                .header High
+                .meta 
+                    $180.00 Blended rate
+                    .right.floated 10% discount
+             .clearing.content
+                .ui.right.floated.statistic 
+                    .value $225,000   
+    .ui.horizontal.divider Details  
+    .ui.statistics
+        .ui.horizontal.statistic
+            .value 1
+            .label Release
+        .ui.horizontal.statistic
+            .value 5
+            .label Sprints
+
+    .ui.three.cards
+        .card 
+            .content 
+                .header Sprint 0
+                .description Several activities....
+        .card 
+            .content 
+                .header Development Sprints
+                .description Development team 2 week iterations
+        .card 
+            .content 
+                .header Release
+        
+        
+.ui.bottom.attached.grey.segment 
+    .ui.labels
+        .ui.label Created 
+            .detail 1/1/2013
+        
+        .ui.label By 
+            .detail John Doe
+.ui.segment
+    h3.ui.header Model
+    pre {{ vm | json }}
