@@ -17,7 +17,7 @@ function handleError(err) {
 
 // Root App Templates
 gulp.task('templates', function () {
-    gulp.src(config.source.templates.all)
+    gulp.src(config.paths.source.base + "/**/" + config.globs.jade)
         .pipe($.jade())
         .on("error", handleError)
         .pipe($.htmlPrettify({
@@ -25,5 +25,5 @@ gulp.task('templates', function () {
             indent_size: 3,
             unformatted: ['a', 'sub', 'sup', 'b', 'i', 'u']
         }))
-        .pipe(gulp.dest(config.build.templates.app));
+        .pipe(gulp.dest(config.paths.temp.templates));
 });

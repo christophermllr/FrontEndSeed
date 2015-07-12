@@ -16,41 +16,11 @@ function handleError(err) {
 
 // Javscript Application files
 gulp.task('scripts-app', function () {
-
-    return gulp.src(config.source.scripts.app)
+    return gulp.src(config.paths.source.base + "/**/" + config.globs.javascript)
         .pipe($.angularFilesort())
-        .pipe(config.build.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
+        .pipe(config.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
         .pipe($.ngAnnotate())
-        .pipe(config.build.isProduction ? $.uglify({preserveComments: 'some'}) : $.util.noop())
-        .pipe(config.build.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
-        .pipe(gulp.dest(config.build.scripts.app));
-});
-
-//  This will be included vendor files statically
-gulp.task('scripts:vendor:base', ['inject-typescript'], function () {
-
-    // Minify and copy all JavaScript (except vendor scripts)
-    return gulp.src(config.vendor.base.source)
-        .pipe($.expectFile(vendor.base.source))
-        .pipe(build.isProduction ? $.uglify({preserveComments: 'some'}) : $.util.noop())
-        .pipe($.concat(config.vendor.base.name))
-        .pipe(gulp.dest(config.vendor.base.dest));
-});
-
-// copy file from bower folder into the app vendor folder
-gulp.task('scripts:vendor:app', function () {
-
-    var jsFilter = $.filter('**/*.js');
-    var cssFilter = $.filter('**/*.css');
-
-    return gulp.src(config.vendor.app.source, {base: config.source.bower.bowerDir})
-        .pipe($.expectFile(config.vendor.app.source))
-        .pipe(jsFilter)
-        .pipe(config.build.isProduction ? $.uglify({preserveComments: 'some'}) : $.util.noop())
-        .pipe(jsFilter.restore())
-        .pipe(cssFilter)
-        .pipe(config.build.isProduction ? $.uglify({preserveComments: 'some'}) : $.util.noop())
-        .pipe(cssFilter.restore())
-        .pipe(gulp.dest(config.vendor.app.dest));
-
+        .pipe(config.isProduction ? $.uglify({preserveComments: 'some'}) : $.util.noop())
+        .pipe(config.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
+        .pipe(gulp.dest(config.paths.temp.scripts));
 });

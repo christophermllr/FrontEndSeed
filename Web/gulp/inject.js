@@ -18,19 +18,19 @@ gulp.task('inject-less', function () {
 
     //Wire Bower into LESS files
     gulp.src('src/less/app.less')
-        .pipe(wiredep({
-            directory: config.source.bowerDir
-        }))
+        .pipe(wiredep())
         .pipe(gulp.dest('src/less'));
 });
 
 gulp.task('inject-typescript', function () {
-    var sourceFiles = config.source.scripts.typings.slice();
-    sourceFiles.push('!' + config.source.scripts.referenceFile);
+    var sourceFiles = [config.paths.source.base + "/**/" + config.globs.typescript,
+                       '!' + config.paths.source.tsd,
+                         config.paths.typings + "/**/" + config.globs.typescript];
 
+  
     var sources = gulp.src(sourceFiles);
 
-    gulp.src(config.source.scripts.referenceFile)
+    gulp.src(config.paths.source.tsd)
         .pipe($.inject(sources, {
             starttag: '//{',
             endtag: '//}',
@@ -39,7 +39,7 @@ gulp.task('inject-typescript', function () {
                 return '/// <reference path="' + filepath + '" />';
             }
         }))
-        .pipe(gulp.dest(config.source.scripts.typingsFolder));
+        .pipe(gulp.dest(config.paths.typings));
 
 });
 
@@ -67,10 +67,10 @@ gulp.task('inject-karma', ['inject-typescript'], function () {
 });
 
 gulp.task('inject-jade', ['inject-typescript', 'inject-less', 'compile-typescript', 'scripts-app', 'styles-app', 'styles-themes'], function () {
-    var angularSources = gulp.src(path.join(config.build.scripts.app, '/**/*.js')).pipe($.angularFilesort());
+    var angularSources = gulp.src(path.join(config.paths.temp.scripts, '/**/*.js')).pipe($.angularFilesort());
 
 
-    return gulp.src(config.source.templates.all)
+    return gulp.src(config.paths.source.base + "/**/" + config.globs.jade)
         .pipe($.inject(angularSources, {
             read: false,
             ignorePath: ".tmp",
@@ -93,7 +93,7 @@ gulp.task('inject-jade', ['inject-typescript', 'inject-less', 'compile-typescrip
                 }
             }
         }))
-        .pipe(gulp.dest(config.source.root));
+        .pipe(gulp.dest(config.paths.source.base));
 
 });
 

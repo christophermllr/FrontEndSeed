@@ -44,9 +44,9 @@ function startServer(proxyUrl, serverPort) {
     app.use(jsonProxyInit(proxyUrl));
 
     app.use($.connectLivereload());
-    app.use($.express.static(config.build.tempFolder));
-    app.use('/bower_components', $.express.static(config.source.bower.bowerDir));
-    app.use('/fonts', $.express.static('./bower_components/bootstrap/fonts/'));
+    app.use($.express.static(config.paths.temp.base));
+    app.use('/bower_components', $.express.static(config.paths.source.bower));
+    app.use('/fonts', $.express.static(config.paths.source.bower + '/bootstrap/fonts/'));
 
     app.listen(serverPort);
 }

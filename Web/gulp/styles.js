@@ -15,34 +15,25 @@ function handleError(err) {
 
 // APP LESS
 gulp.task('styles-app', function () {
-    return gulp.src(config.source.styles.app.main)
-        .pipe(config.build.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
+    return gulp.src(config.paths.source.lessMain)
+        .pipe(config.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
         .pipe($.less({
-            paths: [config.source.styles.app.dir]
+            paths: [config.paths.source.styles]
         }))
-        .pipe(config.build.isProduction ? $.minifyCss() : $.util.noop())
-        .pipe(config.build.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
-        .pipe(gulp.dest(config.build.styles));
+        .pipe(config.isProduction ? $.minifyCss() : $.util.noop())
+        .pipe(config.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
+        .pipe(gulp.dest(config.paths.temp.styles));
 });
 
 
 // LESS THEMES
 gulp.task('styles-themes', function () {
-    return gulp.src(config.source.styles.themes.main)
-        .pipe(config.build.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
+    return gulp.src(config.paths.source.styles.themes + "/**/" + config.globs.less)
+        .pipe(config.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
         .pipe($.less())
-        .pipe(config.build.isProduction ? $.minifyCss() : $.util.noop())
-        .pipe(config.build.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
-        .pipe(gulp.dest(config.build.styles));
+        .pipe(config.isProduction ? $.minifyCss() : $.util.noop())
+        .pipe(config.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
+        .pipe(gulp.dest(config.paths.temp.styles));
 });
 
-// BOOSTRAP
-gulp.task('bootstrap', function () {
-    return gulp.src(config.source.bootstrap.main)
-        .pipe($.less({
-            paths: [config.source.bootstrap.dir]
-        }))
-        .on("error", handleError)
-        .pipe(gulp.dest(config.build.styles));
-});
 
