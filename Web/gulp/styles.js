@@ -17,9 +17,7 @@ function handleError(err) {
 gulp.task('styles-app', function () {
     return gulp.src(config.paths.source.lessMain)
         .pipe(config.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
-        .pipe($.less({
-            paths: [config.paths.source.styles]
-        }))
+        .pipe($.less())
         .pipe(config.isProduction ? $.minifyCss() : $.util.noop())
         .pipe(config.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
         .pipe(gulp.dest(config.paths.temp.styles));
@@ -35,5 +33,3 @@ gulp.task('styles-themes', function () {
         .pipe(config.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
         .pipe(gulp.dest(config.paths.temp.styles));
 });
-
-
