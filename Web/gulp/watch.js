@@ -26,7 +26,8 @@ gulp.task('watch', ['compile-all'], function () {
     gulp.watch(config.paths.source.base + "/**/" + config.globs.typescript, ['compile-typescript']);
     gulp.watch(config.paths.source.base + "/**/" + config.globs.less, ['styles-app']);
     gulp.watch(config.paths.source.base + "/**/" + config.globs.jade, ['templates']);
-
+    
+    //Watch our temp to do the reload
     gulp.watch([config.paths.temp.base + '/**'
     ]).on('change', handleReload);
 });
