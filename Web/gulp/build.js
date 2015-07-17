@@ -12,10 +12,8 @@ var gulp = require('gulp'),
 
 var assets = $.useref.assets();
 
-
 gulp.task('build', ['dist', 'clean-dist', 'compile-dist']);
 gulp.task('build-dev', ['dev', 'compile-dev']);
-
 
 /*
  * Cleans output files and temporary files
@@ -45,7 +43,6 @@ gulp.task('clean-dist', ['clean'], function () {
 /*
  * Sets build configuration to isProduction
  */
-
 gulp.task('dist', ['clean-dist'], function () {
     config.isProduction = true;
 });
@@ -53,10 +50,8 @@ gulp.task('dev', ['clean-dev'], function () {
     config.isProduction = false;
 });
 
-
-
-
 gulp.task('compile-all', ['compile-assets', 'compile-templates']);
+
 gulp.task('compile-templates', function () {
     $.runSequence(['templates']);
 });
@@ -70,11 +65,9 @@ gulp.task('compile-assets', [
     'styles-themes',
 ]);
 
-
-
 gulp.task('compile-dev', ['dev', 'compile-all', 'templates'], function () {
 
-    gulp.src([config.paths.temp.base + "/**/" + config.globs.html])
+    gulp.src(config.paths.temp.base + "/**/" + config.globs.html)
         .pipe(assets)
         .pipe($.rev())
         .pipe(assets.restore())
@@ -82,6 +75,7 @@ gulp.task('compile-dev', ['dev', 'compile-all', 'templates'], function () {
         .pipe($.revReplace())
         .pipe(gulp.dest(path.join(config.root, config.paths.output.dev)));
 });
+
 gulp.task('compile-dist', ['dist', 'compile-all', 'templates'], function () {
 
     gulp.src([config.paths.temp.base + "/**/" + config.globs.html])
@@ -93,8 +87,6 @@ gulp.task('compile-dist', ['dist', 'compile-all', 'templates'], function () {
         .pipe($.revReplace())
         .pipe(gulp.dest(path.join(config.root, config.paths.output.dist)));
 });
-
-
 
 // build option to
 // build with sourcemaps (no minify)

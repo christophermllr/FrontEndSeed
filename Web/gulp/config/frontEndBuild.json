@@ -14,7 +14,7 @@
 		},
 		"output":{
 			"dist": "wwwroot",
-		  	"dev": "wwwroot"
+		  	"dev": "dist/dev"
 		},
 		"temp":{
 			"base": ".tmp",
@@ -41,7 +41,7 @@
 	},
 	"globs": {
 		"jade": "*.jade",
-		"html": "(*.html|*.htm)",
+		"html": "*.html",
 		"less": "*.less",
 		"css": "*.css",
 		"typescript": "*.ts",
