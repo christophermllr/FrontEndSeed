@@ -36,7 +36,8 @@ Other tasks of interest include ``gulp build`` which runs a dist build and place
 
 ## Dev Dependencies
 
-- [connect-livereload](https://github.com/intesso/connect-livereload): connect middleware for adding the livereload script to the response
+- [browser-sync](https://github.com/git+https:/): Live CSS Reload &amp; Browser Syncing
+- [connect-browser-sync](https://github.com/schmich/connect-browser-sync): Connect middleware for BrowserSync.
 - [del](https://github.com/git+https:/): Delete files/folders using globs
 - [express](https://github.com/strongloop/express): Fast, unopinionated, minimalist web framework
 - [gulp](https://github.com/git+https:/): The streaming build system
@@ -70,13 +71,9 @@ Other tasks of interest include ``gulp build`` which runs a dist build and place
 - [karma](https://github.com/karma-runner/karma): Spectacular Test Runner for JavaScript.
 - [karma-jasmine](https://github.com/karma-runner/karma-jasmine): A Karma plugin - adapter for Jasmine testing framework.
 - [karma-phantomjs-launcher](https://github.com/karma-runner/karma-phantomjs-launcher): A Karma plugin. Launcher for PhantomJS.
-- [opn](https://github.com/sindresorhus/opn): A better node-open. Opens stuff like websites, files, executables. Cross-platform.
 - [require-dir](https://github.com/aseemk/requireDir): Helper to require() directories.
 - [run-sequence](https://github.com/OverZealous/run-sequence): Run a series of dependent gulp tasks in order
-- [tiny-lr](https://github.com/mklabs/tiny-lr): Tiny LiveReload server, background-friendly
 - [wiredep](https://github.com/taptapship/wiredep): Wire Bower dependencies to your source code.
-
-
 
 ## File Structure
 There are several key files in the file system that are used for the build process.  These are highlighted in the listing below.
