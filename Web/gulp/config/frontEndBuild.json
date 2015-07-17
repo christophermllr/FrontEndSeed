@@ -2,6 +2,7 @@
 	"isProduction": false,
 	"useSourceMaps": true,
 	"root": "./",
+	"browserSyncName": "main",
 	"paths":{
 		"source":{
 			"base":"src",
@@ -30,10 +31,14 @@
 	},
     "ports":{
 		"LIVERELOAD_PORT": 35729,
-		"SERVER_PORT": 9000,        
-		"E2E_PORT": 3000
+		"SERVER_PORT": 9000,
+		"BrowserSync": 3000,        
+		"E2E_PORT": 3099	
 	},
-	
+	"jsonProxy":{
+		"devProxyTarget": "http://localhost:9999",
+		"qaProxyTarget": "http://localhost:9999"
+	},
 	"globs": {
 		"jade": "*.jade",
 		"html": "(*.html|*.htm)",

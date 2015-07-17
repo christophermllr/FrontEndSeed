@@ -6,14 +6,10 @@
 var gulp = require('gulp'),
     config = require('./config/config'),
     $ = require('gulp-load-plugins')({
-        pattern: ['gulp-*', 'tiny-lr']
+        pattern: ['gulp-*', 'browser-sync']
     });
 
-
-function handleReload(event) {
-    console.log('Reloading... :)');
-    $.tinyLr.changed(event.path);
-}
+var browserSync = $.browserSync.get(config.browserSyncName);
 
 //---------------
 // WATCH
@@ -28,6 +24,5 @@ gulp.task('watch', ['compile-all'], function () {
     gulp.watch(config.paths.source.base + "/**/" + config.globs.jade, ['templates']);
     
     //Watch our temp to do the reload
-    gulp.watch([config.paths.temp.base + '/**'
-    ]).on('change', handleReload);
+    gulp.watch([config.paths.temp.base + '/**']).on('change', browserSync.reload);
 });
