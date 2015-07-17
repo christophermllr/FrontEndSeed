@@ -7,27 +7,21 @@ var gulp = require('gulp'),
         pattern: ['gulp-*', 'express', 'json-proxy', 'browser-sync', 'connect-browser-sync']
     });
 
-
-
-
-var devProxyTarget = 'http://localhost:9999';
-var qaProxyTarget = 'http://localhost:9999';
-
 var browserSync = $.browserSync.create(config.browserSyncName);
 
 //Main server task
 gulp.task('serve', ['watch'], function () {
-    startServer(devProxyTarget, config.ports.SERVER_PORT);
+    startServer(config.jsonProxy.devProxyTarget, config.ports.SERVER_PORT);
 });
 
 //QA endpoint
 gulp.task('serve:qa', ['watch'], function () {
-    startServer(qaProxyTarget, config.ports.SERVER_PORT);
+    startServer(config.jsonProxy.qaProxyTarget, config.ports.SERVER_PORT);
 });
 
 //E2E needs
 gulp.task('serve:e2e', ['watch'], function () {
-    startServer(devProxyTarget, config.ports.E2E_PORT);
+    startServer(config.jsonProxy.devProxyTarget, config.ports.E2E_PORT);
 });
 
 

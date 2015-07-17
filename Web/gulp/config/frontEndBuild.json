@@ -35,7 +35,10 @@
 		"BrowserSync": 3000,        
 		"E2E_PORT": 3099	
 	},
-	
+	"jsonProxy":{
+		"devProxyTarget": "http://localhost:9999",
+		"qaProxyTarget": "http://localhost:9999"
+	},
 	"globs": {
 		"jade": "*.jade",
 		"html": "(*.html|*.htm)",
