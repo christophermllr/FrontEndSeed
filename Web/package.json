@@ -1,13 +1,12 @@
 {
-  "name": "FrontEnd-Seed",
+  "name": "wmp-frontend-seed",
   "version": "1.0.0",
-  "description": "A test",
+  "description": "This project serves as a basic project structure for your front end code and build based on angular, less, typescript, jade, gulp, and bower.",
   "main": "gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
+  "author": "Joe Mongiat <jmongiat@gmail.com>",
+  "scripts": {  },
   "license": "ISC",
+  "private": true,
   "devDependencies": {
     "browser-sync": "^2.7.13",
     "connect-browser-sync": "^2.0.1",
@@ -47,5 +46,9 @@
     "require-dir": "^0.1.0",
     "run-sequence": "^1.1.0",
     "wiredep": "^1.8.6"
-  }
+  },
+  "repository" : {
+      "type" : "git", 
+      "url" : "https://github.com/jmongiat/FrontEndSeed.git"
+    }
 }
