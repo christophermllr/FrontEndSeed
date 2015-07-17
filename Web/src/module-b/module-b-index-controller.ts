@@ -1,6 +1,6 @@
 /// <reference path='../../typings/tsd.d.ts' />
 
-module ModuleA {
+module ModuleB {
 
     "use strict";
     export class ModuleBIndex {

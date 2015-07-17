@@ -7,7 +7,7 @@ module ModuleB {
                 $stateProvider.state('moduleB', {
                     url: '/module-b',
                     templateUrl: 'module-b/index.html',
-                    controller: 'moduleBIndex as vm'
+                    controller: 'moduleBIndexController as vm'
                 });
         }]);
 }
