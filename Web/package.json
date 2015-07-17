@@ -4,7 +4,7 @@
   "description": "This project serves as a basic project structure for your front end code and build based on angular, less, typescript, jade, gulp, and bower.",
   "main": "gulpfile.js",
   "author": "Joe Mongiat <jmongiat@live.com>",
-  "scripts": {  },
+  "scripts": {},
   "license": "ISC",
   "private": true,
   "devDependencies": {
@@ -14,6 +14,7 @@
     "express": "^4.8.8",
     "gulp": "^3.8.7",
     "gulp-angular-filesort": "^1.1.1",
+    "gulp-bower": "0.0.10",
     "gulp-concat": "^2.5.2",
     "gulp-csso": "^1.0.0",
     "gulp-debug": "^2.0.1",
@@ -47,8 +48,8 @@
     "run-sequence": "^1.1.0",
     "wiredep": "^1.8.6"
   },
-  "repository" : {
-      "type" : "git", 
-      "url" : "https://github.com/jmongiat/FrontEndSeed.git"
-    }
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jmongiat/FrontEndSeed.git"
+  }
 }
