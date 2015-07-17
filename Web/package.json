@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "This project serves as a basic project structure for your front end code and build based on angular, less, typescript, jade, gulp, and bower.",
   "main": "gulpfile.js",
-  "author": "Joe Mongiat <jmongiat@gmail.com>",
+  "author": "Joe Mongiat <jmongiat@live.com>",
   "scripts": {  },
   "license": "ISC",
   "private": true,
