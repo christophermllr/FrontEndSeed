@@ -44,6 +44,7 @@
     "karma": "^0.12.32",
     "karma-jasmine": "^0.1.5",
     "karma-phantomjs-launcher": "^0.1.4",
+    "main-bower-files": "^2.9.0",
     "require-dir": "^0.1.0",
     "run-sequence": "^1.1.0",
     "wiredep": "^1.8.6"
@@ -51,5 +52,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/jmongiat/FrontEndSeed.git"
+  },
+  "dependencies": {
+    "semantic-ui": "^2.0.6"
   }
 }

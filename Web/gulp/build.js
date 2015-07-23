@@ -60,6 +60,7 @@ gulp.task('compile-assets', [
     'inject-typescript',
     'inject-less',
     'compile-typescript',
+    'bower-files',
     'scripts-app',
     'styles-app',
     'styles-themes',
@@ -85,7 +86,7 @@ gulp.task('compile-dist', ['dist', 'compile-all', 'templates'], function () {
         .pipe(assets.restore())
         .pipe($.useref())
         .pipe($.revReplace())
-        .pipe(gulp.dest(path.join(config.root, config.paths.output.dist)));
+        .pipe(gulp.dest(path.join(config.root, config.paths.output.dist)));       
 });
 
 // build option to

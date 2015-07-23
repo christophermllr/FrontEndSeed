@@ -13,14 +13,15 @@
 			"lessMain": "src/less/app.less"
 		},
 		"output":{
-			"dist": "wwwroot",
-		  	"dev": "dist/dev"
+			"dist": "dist",
+		  	"dev": "dev"
 		},
 		"temp":{
 			"base": ".tmp",
   			"styles": ".tmp/css",
 			"scripts":".tmp/js",
-			"templates": "./.tmp"
+			"templates": "./.tmp",
+			"lib": ".tmp/lib"
 		},
 		"test": {
 			"base": "tests",

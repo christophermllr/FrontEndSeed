@@ -5,8 +5,9 @@
 var gulp = require('gulp'),
     config = require('./config/config'),
     $ = require('gulp-load-plugins')({
-        pattern: ['gulp-*']
+        pattern: ['gulp-*', 'main-bower-files']
     });
+var assets = $.useref.assets();
 
 // Error handler
 function handleError(err) {
@@ -23,4 +24,10 @@ gulp.task('scripts-app', function () {
         .pipe(config.isProduction ? $.uglify({preserveComments: 'some'}) : $.util.noop())
         .pipe(config.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
         .pipe(gulp.dest(config.paths.temp.scripts));
+});
+
+
+gulp.task("bower-files", function(){
+   gulp.src($.mainBowerFiles(), {base:config.paths.source.bower})
+        .pipe(gulp.dest(config.paths.temp.lib));
 });

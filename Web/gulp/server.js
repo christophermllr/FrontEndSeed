@@ -34,8 +34,6 @@ function startServer(proxyUrl, serverPort) {
     app.use($.connectBrowserSync(browserSyncInit(serverPort)))
     app.use(jsonProxyInit(proxyUrl));    
     app.use($.express.static(config.paths.temp.base));
-    app.use('/bower_components', $.express.static(config.paths.source.bower));
-    app.use('/fonts', $.express.static(config.paths.source.bower + '/bootstrap/fonts/'));
     app.listen(serverPort);
 }
 

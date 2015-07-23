@@ -68,7 +68,7 @@ gulp.task('inject-karma', ['inject-typescript'], function () {
 
 gulp.task('inject-jade', ['inject-typescript', 'inject-less', 'compile-typescript', 'scripts-app', 'styles-app', 'styles-themes'], function () {
     var angularSources = gulp.src(path.join(config.paths.temp.scripts, '/**/*.js')).pipe($.angularFilesort());
-
+    var bowerSources = gulp.src($.mainBowerFiles(), {read:false});
 
     return gulp.src(config.paths.source.base + "/**/" + config.globs.jade)
         .pipe($.inject(angularSources, {
@@ -79,20 +79,22 @@ gulp.task('inject-jade', ['inject-typescript', 'inject-less', 'compile-typescrip
             addRootSlash: false,
 
         }))
-        .pipe(wiredep({
-            ignorePath: '../',
-            jade: {
-                block: /(([ \t]*)\/\/\s*bower:*(\S*))(\n|\r|.)*?(\/\/\s*endbower)/gi,
-                detect: {
-                    js: /script\(.*src=['"]([^'"]+)/gi,
-                    css: /link\(.*href=['"]([^'"]+)/gi
-                },
-                replace: {
-                    js: 'script(src=\'{{filePath}}\')',
-                    css: 'link(rel=\'stylesheet\', href=\'{{filePath}}\')'
-                }
-            }
-        }))
+        .pipe($.inject(bowerSources, {name:'bower', ignorePath:'bower_components', addRootSlash:false, addPrefix:'lib'}))        
+        // .pipe(wiredep({
+        //     
+        //     ignorePath: '../bower_components',
+        //     jade: {
+        //         block: /(([ \t]*)\/\/\s*bower:*(\S*))(\n|\r|.)*?(\/\/\s*endbower)/gi,
+        //         detect: {
+        //             js: /script\(.*src=['"]([^'"]+)/gi,
+        //             css: /link\(.*href=['"]([^'"]+)/gi
+        //         },
+        //         replace: {
+        //             js: 'script(src=\'{{filePath}}\')',
+        //             css: 'link(rel=\'stylesheet\', href=\'{{filePath}}\')'
+        //         }
+        //     }
+        // }))
         .pipe(gulp.dest(config.paths.source.base));
 
 });
