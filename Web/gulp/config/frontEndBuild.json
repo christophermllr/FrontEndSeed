@@ -7,6 +7,7 @@
 		"source":{
 			"base":"src",
 			"bower": "bower_components",
+			"semantic": "semantic",
 			"tsd": "typings/tsd.d.ts",
 			"styles": "src/less",			
 			"themes": "src/less/themes",

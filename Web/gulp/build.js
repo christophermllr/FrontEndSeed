@@ -61,12 +61,24 @@ gulp.task('compile-assets', [
     'inject-less',
     'compile-typescript',
     'bower-files',
+    'semantic',
     'scripts-app',
     'styles-app',
     'styles-themes',
 ]);
 
+gulp.task('semantic', function(){
+    var semanticPath = path.join(config.semantic.base, config.semantic.paths.output.packaged);
+    semanticPath = semanticPath + "/**";
+    
+    gulp.src(semanticPath)
+        .pipe($.debug())
+        .pipe(gulp.dest(path.join(config.paths.temp.base, 'semantic/dist')));
+})
+
 gulp.task('compile-dev', ['dev', 'compile-all', 'templates'], function () {
+
+    var outpath = path.join(config.root, config.paths.output.dev)
 
     gulp.src(config.paths.temp.base + "/**/" + config.globs.html)
         .pipe(assets)
@@ -74,19 +86,33 @@ gulp.task('compile-dev', ['dev', 'compile-all', 'templates'], function () {
         .pipe(assets.restore())
         .pipe($.useref())
         .pipe($.revReplace())
-        .pipe(gulp.dest(path.join(config.root, config.paths.output.dev)));
+        .pipe(gulp.dest(outpath));   
+        
+    var semanticPath = path.join(config.semantic.base, config.semantic.paths.output.packaged);
+    semanticPath = semanticPath + "/**";
+    
+    gulp.src(semanticPath)
+        .pipe(gulp.dest(path.join(outpath, 'semantic/dist')));
 });
 
 gulp.task('compile-dist', ['dist', 'compile-all', 'templates'], function () {
 
-    gulp.src([config.paths.temp.base + "/**/" + config.globs.html])
+    var outpath = path.join(config.root,  config.paths.output.dist)
+    
+    gulp.src(config.paths.temp.base + "/**/" + config.globs.html)
         .pipe(assets)
         .pipe($.if('*.js', $.uglify()))
         .pipe($.rev())
         .pipe(assets.restore())
         .pipe($.useref())
         .pipe($.revReplace())
-        .pipe(gulp.dest(path.join(config.root, config.paths.output.dist)));       
+        .pipe(gulp.dest(path.join(config.root, config.paths.output.dist)));
+      
+    var semanticPath = path.join(config.semantic.base, config.semantic.paths.output.packaged);
+    semanticPath = semanticPath + "/**";
+
+    gulp.src(semanticPath)
+        .pipe(gulp.dest(path.join(outpath, 'semantic/dist')));
 });
 
 // build option to
