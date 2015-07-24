@@ -15,16 +15,27 @@
 		},
 		"output":{
 			"dist": "dist",
+<<<<<<< HEAD
 		  	"dev":{
 				"base": "dev",
   			 	"styles": "dev/css",
 				"scripts":"dev/js",
 			    "templates": "./dev",
-			 	"lib": "dev/lib",
-				"semantic": "dev/semantic"
+			 	"lib": "dev/lib"
 			  }
-			
 		},		
+=======
+		  	"dev": "dev"
+		},
+		"temp":{
+			"base": ".tmp",
+  			"styles": ".tmp/css",
+			"scripts":".tmp/js",
+			"templates": "./.tmp",
+			"lib": ".tmp/lib",
+			"semantic": ".tmp/semantic"
+		},
+>>>>>>> b4d15a2c1ce7c5a19f3bd8d5023c9c971051a287
 		"test": {
 			"base": "tests",
 			"config": "tests/karma.conf.js"

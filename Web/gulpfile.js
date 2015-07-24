@@ -15,7 +15,7 @@ var gulpSync = $.sync(gulp);
 require('require-dir')('./gulp');
 
 // default (run without no minify)
-gulp.task('default', function () {
+gulp.task('default',['clean'], function () {
     $.runSequence(['clean', 'compile-all', 'serve']);
     $.util.log($.util.colors.cyan('************'));
     $.util.log($.util.colors.cyan('* All Done *'), 'You can start editing your code, LiveReload will update your browser after any change..');

@@ -16,12 +16,10 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
         // bower:js
-        '../bower_components/jquery/dist/jquery.js',
         '../bower_components/angular/angular.js',
-        '../bower_components/semantic-ui/dist/semantic.js',
-        '../bower_components/angular-route/angular-route.js',
+        '../bower_components/angular-ui-router/release/angular-ui-router.js',
         // endbower
-      {pattern: '../app/scripts/**/*.js', included: true},
+      {pattern: '../.tmp/scripts/**/*.js', included: true},
       {pattern: 'unit/**/*.js', included: true}
 
     ],

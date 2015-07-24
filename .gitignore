@@ -14,7 +14,7 @@
 [Rr]eleases/
 x64/
 x86/
-build/
+#build/
 bld/
 [Bb]in/
 [Oo]bj/
@@ -190,3 +190,4 @@ dist
 .tmp
 npm-debug.log
 artifacts
+Web/dev
