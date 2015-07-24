@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="frontEndSeed">
+
+<head>
+   <!-- build:css css/vendor.css -->
+   <!-- endbuild -->
+   <!-- build:css css/app.css -->
+   <link rel="stylesheet" href="css/app.css">
+   <!-- endbuild -->
+</head>
+
+<body ng-controller="mainController as vm">
+   <div ng-controller="navigationController" class="ui stackable inverted blue menu"><a ui-sref="home" class="header item">Front end seed</a><a ui-sref="moduleA" ui-sref-active="active" class="grey item">Module A</a><a ui-sref="moduleB" ui-sref-active="active" class="grey item">Module B</a>
+      <div class="right menu"><a class="item">yoo</a>
+      </div>
+   </div>
+   <div class="ui main container">
+      <div class="sixteen wide column">
+         <div class="basic ui segment">
+            <div ui-view>
+               <h1 class="ui header">Home
+                  <div class="sub header">A test of the jade template engine and Gulp build process</div>
+               </h1>
+            </div>
+         </div>
+      </div>
+   </div>
+</body>
+<!-- build:js js/vendor.js    -->
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+<!-- endbuild -->
+<!-- build:js js/app.js-->
+<script src="js/main.js"></script>
+<script src="js/navigation/navigation-controller.js"></script>
+<script src="js/module-b/module-b.js"></script>
+<script src="js/module-b/module-b-index-controller.js"></script>
+<script src="js/module-a/module-a-module.js"></script>
+<script src="js/module-a/module-a-demo-controller.js"></script>
+<script src="js/module-a/IDemoModel.js"></script>
+<!-- endbuild -->
+
+</html>

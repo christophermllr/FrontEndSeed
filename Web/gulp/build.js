@@ -20,7 +20,7 @@ gulp.task('build-dev', ['dev', 'compile-dev']);
  */
 gulp.task('clean', function () {
     $.del.sync([
-        config.paths.temp.base
+        config.paths.output.dev.base
     ]);
 });
 
@@ -73,14 +73,14 @@ gulp.task('semantic', function(){
     
     gulp.src(semanticPath)
         .pipe($.debug())
-        .pipe(gulp.dest(path.join(config.paths.temp.base, 'semantic/dist')));
+        .pipe(gulp.dest(path.join(config.paths.output.dev.base, 'semantic/dist')));
 })
 
 gulp.task('compile-dev', ['dev', 'compile-all', 'templates'], function () {
 
     var outpath = path.join(config.root, config.paths.output.dev)
 
-    gulp.src(config.paths.temp.base + "/**/" + config.globs.html)
+    gulp.src(config.paths.output.dev.base + "/**/" + config.globs.html)
         .pipe(assets)
         .pipe($.rev())
         .pipe(assets.restore())
@@ -99,7 +99,7 @@ gulp.task('compile-dist', ['dist', 'compile-all', 'templates'], function () {
 
     var outpath = path.join(config.root,  config.paths.output.dist)
     
-    gulp.src(config.paths.temp.base + "/**/" + config.globs.html)
+    gulp.src(config.paths.output.dev.base + "/**/" + config.globs.html)
         .pipe(assets)
         .pipe($.if('*.js', $.uglify()))
         .pipe($.rev())

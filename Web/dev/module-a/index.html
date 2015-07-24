@@ -1,0 +1,10 @@
+<h1 class="ui header">{{ vm.model.title }}
+   <div class="sub header">{{ vm.model.description }}</div>
+</h1>
+<div class="ui segment">
+   <button ng-click="vm.smack()" class="ui button">smack!</button>
+</div>
+<div class="ui segment">
+   <h3>Model</h3>
+   <pre>{{ vm | json }}</pre>
+</div>

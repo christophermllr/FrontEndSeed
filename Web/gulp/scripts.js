@@ -23,11 +23,11 @@ gulp.task('scripts-app', function () {
         .pipe($.ngAnnotate())
         .pipe(config.isProduction ? $.uglify({preserveComments: 'some'}) : $.util.noop())
         .pipe(config.useSourceMaps ? $.sourcemaps.write() : $.util.noop())
-        .pipe(gulp.dest(config.paths.temp.scripts));
+        .pipe(gulp.dest(config.paths.output.dev.scripts));
 });
 
 
 gulp.task("bower-files", function(){
    gulp.src($.mainBowerFiles(), {base:config.paths.source.bower})
-        .pipe(gulp.dest(config.paths.temp.lib));
+        .pipe(gulp.dest(config.paths.output.dev.lib));
 });

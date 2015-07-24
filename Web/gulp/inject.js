@@ -67,7 +67,7 @@ gulp.task('inject-karma', ['inject-typescript'], function () {
 });
 
 gulp.task('inject-jade', ['inject-typescript', 'inject-less', 'compile-typescript', 'scripts-app', 'styles-app', 'styles-themes'], function () {
-    var angularSources = gulp.src(path.join(config.paths.temp.scripts, '/**/*.js')).pipe($.angularFilesort());
+    var angularSources = gulp.src(path.join(config.paths.output.dev.scripts, '/**/*.js')).pipe($.angularFilesort());
     var bowerSources = gulp.src($.mainBowerFiles(), {read:false});
 
     return gulp.src(config.paths.source.base + "/**/" + config.globs.jade)

@@ -25,5 +25,5 @@ gulp.task('templates', function () {
             indent_size: 3,
             unformatted: ['a', 'sub', 'sup', 'b', 'i', 'u']
         }))
-        .pipe(gulp.dest(config.paths.temp.templates));
+        .pipe(gulp.dest(config.paths.output.dev.templates));
 });

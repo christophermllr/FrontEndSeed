@@ -29,9 +29,9 @@ gulp.task('compile-typescript', function () {
                            noExternalResolve: false
                        }));
 
-    tsResult.dts.pipe(gulp.dest(config.paths.temp.scripts));
+    tsResult.dts.pipe(gulp.dest(config.paths.output.dev.scripts));
     return tsResult.js
                     .pipe(config.isProduction ? $.uglify({preserveComments: 'some'}) : $.util.noop())
                     .pipe($.sourcemaps.write())
-                    .pipe(gulp.dest(config.paths.temp.scripts));
+                    .pipe(gulp.dest(config.paths.output.dev.scripts));
 });

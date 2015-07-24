@@ -29,11 +29,10 @@ gulp.task('serve:e2e', ['watch'], function () {
  Setup the server
  */
 function startServer(proxyUrl, serverPort) {
-
     var app = $.express();    
     app.use($.connectBrowserSync(browserSyncInit(serverPort)))
     app.use(jsonProxyInit(proxyUrl));    
-    app.use($.express.static(config.paths.temp.base));
+    app.use($.express.static(config.paths.output.dev.base));
     app.listen(serverPort);
 }
 

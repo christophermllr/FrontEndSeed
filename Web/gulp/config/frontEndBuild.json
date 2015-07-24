@@ -15,15 +15,14 @@
 		},
 		"output":{
 			"dist": "dist",
-		  	"dev": "dev"
-		},
-		"temp":{
-			"base": ".tmp",
-  			"styles": ".tmp/css",
-			"scripts":".tmp/js",
-			"templates": "./.tmp",
-			"lib": ".tmp/lib"
-		},
+		  	"dev":{
+				"base": "dev",
+  			 	"styles": "dev/css",
+				"scripts":"dev/js",
+			    "templates": "./dev",
+			 	"lib": "dev/lib"
+			  }
+		},		
 		"test": {
 			"base": "tests",
 			"config": "tests/karma.conf.js"
