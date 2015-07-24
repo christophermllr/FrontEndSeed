@@ -10,16 +10,34 @@ var gulp = require('gulp'),
     $ = require('gulp-load-plugins')({
         pattern: ['gulp-*', 'main-bower-files', 'wiredep']
     });
-
 var wiredep = $.wiredep.stream;
 
+/*
+* Primary task for injecting into source files
+*/
+gulp.task('inject', ['inject-jade', 'inject-typescript']);
 
-gulp.task('inject-less', function () {
 
-    //Wire Bower into LESS files
-    gulp.src('src/less/app.less')
-        .pipe(wiredep())
-        .pipe(gulp.dest('src/less'));
+// Injects all references into jade files
+gulp.task('inject-jade', ['inject-typescript', 'compile-typescript', 'scripts-app'], function () {
+    
+    var angularSources = gulp.src(path.join(config.paths.temp.scripts, '/**/' + config.globs.javascript)).pipe($.angularFilesort());
+    var bowerSources = gulp.src($.mainBowerFiles(), {read:false});
+
+    return gulp.src(config.paths.source.base + "/**/" + config.globs.jade)
+        .pipe($.inject(angularSources, {
+            read: false,
+            ignorePath: ".tmp",
+            addRootSlash: false,
+        }))
+        .pipe($.inject(bowerSources, {
+            name:'bower', 
+            ignorePath:'bower_components', 
+            addRootSlash:false, 
+            addPrefix:'lib'
+        }))       
+        .pipe(gulp.dest(config.paths.source.base));
+
 });
 
 gulp.task('inject-typescript', function () {
@@ -63,39 +81,6 @@ gulp.task('inject-karma', ['inject-typescript'], function () {
             }
         }))
         .pipe(gulp.dest('test'));
-
-});
-
-gulp.task('inject-jade', ['inject-typescript', 'inject-less', 'compile-typescript', 'scripts-app', 'styles-app', 'styles-themes'], function () {
-    var angularSources = gulp.src(path.join(config.paths.temp.scripts, '/**/*.js')).pipe($.angularFilesort());
-    var bowerSources = gulp.src($.mainBowerFiles(), {read:false});
-
-    return gulp.src(config.paths.source.base + "/**/" + config.globs.jade)
-        .pipe($.inject(angularSources, {
-            read: false,
-            ignorePath: ".tmp",
-            starttag: '//- {{name}}:{{ext}}',
-            endtag: '//- endinject',
-            addRootSlash: false,
-
-        }))
-        .pipe($.inject(bowerSources, {name:'bower', ignorePath:'bower_components', addRootSlash:false, addPrefix:'lib'}))        
-        // .pipe(wiredep({
-        //     
-        //     ignorePath: '../bower_components',
-        //     jade: {
-        //         block: /(([ \t]*)\/\/\s*bower:*(\S*))(\n|\r|.)*?(\/\/\s*endbower)/gi,
-        //         detect: {
-        //             js: /script\(.*src=['"]([^'"]+)/gi,
-        //             css: /link\(.*href=['"]([^'"]+)/gi
-        //         },
-        //         replace: {
-        //             js: 'script(src=\'{{filePath}}\')',
-        //             css: 'link(rel=\'stylesheet\', href=\'{{filePath}}\')'
-        //         }
-        //     }
-        // }))
-        .pipe(gulp.dest(config.paths.source.base));
 
 });
 

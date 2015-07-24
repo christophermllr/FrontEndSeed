@@ -57,8 +57,7 @@ gulp.task('compile-templates', function () {
 });
 
 gulp.task('compile-assets', [
-    'inject-typescript',
-    'inject-less',
+    'inject',
     'compile-typescript',
     'bower-files',
     'semantic',
