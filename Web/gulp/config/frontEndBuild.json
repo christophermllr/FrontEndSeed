@@ -22,7 +22,8 @@
   			"styles": ".tmp/css",
 			"scripts":".tmp/js",
 			"templates": "./.tmp",
-			"lib": ".tmp/lib"
+			"lib": ".tmp/lib",
+			"semantic": ".tmp/semantic"
 		},
 		"test": {
 			"base": "tests",

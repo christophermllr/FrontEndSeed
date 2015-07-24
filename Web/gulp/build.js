@@ -72,8 +72,7 @@ gulp.task('semantic', function(){
     semanticPath = semanticPath + "/**";
     
     gulp.src(semanticPath)
-        .pipe($.debug())
-        .pipe(gulp.dest(path.join(config.paths.temp.base, 'semantic/dist')));
+        .pipe(gulp.dest(config.paths.temp.semantic));
 })
 
 gulp.task('compile-dev', ['dev', 'compile-all', 'templates'], function () {
