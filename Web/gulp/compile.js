@@ -58,5 +58,6 @@ gulp.task('compile-dist', ['dist', 'compile-all', 'templates'], function () {
         .pipe(gulp.dest(path.join(config.root, config.paths.output.dist)));
               
     gulp.src(semanticTemp)
+        .pipe($.debug())
         .pipe(gulp.dest(path.join(outpath, 'semantic')));
 });
