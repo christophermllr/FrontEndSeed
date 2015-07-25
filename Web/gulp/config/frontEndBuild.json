@@ -29,7 +29,6 @@
 			"base": "tests",
 			"config": "tests/karma.conf.js"
 		},
-		"clean": [ "js", "css", "views", "index.html"],
 		"typings": "typings"
 	},
     "ports":{
