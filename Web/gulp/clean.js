@@ -10,24 +10,17 @@ var gulp = require('gulp'),
         pattern: ['gulp-*', 'del']
     });
 
-/*
- * Cleans output files and temporary files
- */
-gulp.task('clean', function () {           
-    $.del.sync([config.paths.output.dev.base + "/**/*", config.paths.output.dev.base]);
-});
 
-gulp.task('clean-dev', ['clean'], function () {
 
-    var delPaths = [];
+    /*
+     * Cleans output files and temporary files
+     */
+    gulp.task('clean', function (cb) {           
+        $.del([ config.paths.output.dev.base ], cb);
+    });
 
-    for(var key in config.paths.clean)
-    {
-        delPaths.push(path.join(config.root, config.paths.output.dev.base, config.paths.clean[key]));
-    }
-    $.del.sync(delPaths);
-});
-gulp.task('clean-dist', ['clean'], function () {
+
+gulp.task('clean-dist', function () {
     
     var delPaths = [];
 

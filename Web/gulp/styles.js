@@ -15,7 +15,7 @@ function handleError(err) {
 
 // APP LESS
 gulp.task('styles-app', function () {
-    return gulp.src(config.paths.source.lessMain)
+    gulp.src(config.paths.source.lessMain)
         .pipe(config.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
         .pipe($.less())
         .pipe(config.isProduction ? $.minifyCss() : $.util.noop())
@@ -26,7 +26,7 @@ gulp.task('styles-app', function () {
 
 // LESS THEMES
 gulp.task('styles-themes', function () {
-    return gulp.src(config.paths.source.styles.themes + "/**/" + config.globs.less)
+    gulp.src(config.paths.source.styles.themes + "/**/" + config.globs.less)
         .pipe(config.useSourceMaps ? $.sourcemaps.init() : $.util.noop())
         .pipe($.less())
         .pipe(config.isProduction ? $.minifyCss() : $.util.noop())
