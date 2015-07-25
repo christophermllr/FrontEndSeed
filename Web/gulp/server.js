@@ -1,7 +1,7 @@
 'use strict';
 
 var gulp = require('gulp'),
-    path = require('path'),
+    path = require('path'), 
     config = require('./config/config'),
     $ = require('gulp-load-plugins')({
         pattern: ['gulp-*', 'express', 'json-proxy', 'browser-sync', 'connect-browser-sync']

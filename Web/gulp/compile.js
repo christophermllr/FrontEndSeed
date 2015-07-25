@@ -14,16 +14,11 @@ var semanticTemp = config.paths.output.dev.semantic + "/**";
 
 var assets = $.useref.assets();
 gulp.task('compile-all', ['compile-assets', 'compile-templates']);
-
-gulp.task('compile-templates', function () {
-    $.runSequence(['templates']);
-});
-
+gulp.task('compile-templates', ['templates']);
 gulp.task('compile-assets', [
-    'inject',
-    'compile-typescript',
     'bower-files',
     'semantic',
+    'compile-typescript',  
     'scripts-app',
     'styles-app',
     'styles-themes'

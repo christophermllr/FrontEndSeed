@@ -9,7 +9,7 @@ var gulp = require('gulp'),
     });
     
 // Javscript Application files
-gulp.task('scripts-app', function () {
+gulp.task('scripts-app' , function () {
     return gulp.src(config.paths.source.base + "/**/" + config.globs.javascript)
         .pipe($.angularFilesort())
         //.pipe(config.useSourceMaps ? $.sourcemaps.init() : $.util.noop())

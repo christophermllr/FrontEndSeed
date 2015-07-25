@@ -9,13 +9,8 @@ var gulp = require('gulp'),
         pattern: ['gulp-*', 'run-sequence']
     });
 
-var gulpSync = $.sync(gulp);
-
 //Load related gulp files
 require('require-dir')('./gulp');
 
 // default (run without no minify)
-gulp.task('default', ['clean'], function () {
-    $.runSequence(['compile-all', 'serve']);
-    
-});
+gulp.task('default', ['compile-all', 'serve']);

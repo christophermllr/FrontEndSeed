@@ -41,9 +41,9 @@ gulp.task('inject-jade', ['inject-typescript', 'compile-typescript', 'scripts-ap
 });
 
 gulp.task('inject-typescript', function () {
-    var sourceFiles = [config.paths.source.base + "/**/" + config.globs.typescript,
-                       '!' + config.paths.source.tsd,
-                         config.paths.typings + "/**/" + config.globs.typescript];
+    var sourceFiles = ['!' + config.paths.source.tsd,
+                       config.paths.source.base + "/**/" + config.globs.typescript,
+                       config.paths.typings + "/**/" + config.globs.typescript];
 
   
     var sources = gulp.src(sourceFiles);

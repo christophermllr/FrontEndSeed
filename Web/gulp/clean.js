@@ -7,7 +7,7 @@ var gulp = require('gulp'),
     path = require('path'),
     config = require('./config/config'),
     $ = require('gulp-load-plugins')({
-        pattern: ['gulp-*', 'del']
+        pattern: ['gulp-*', 'del', 'vinyl-paths']
     });
 
 
@@ -15,9 +15,12 @@ var gulp = require('gulp'),
     /*
      * Cleans output files and temporary files
      */
-    gulp.task('clean', function (cb) {           
-        $.del([ config.paths.output.dev.base ], cb);
-    });
+gulp.task('clean', function () { 
+      
+    gulp.src(config.paths.output.dev.base, {read:false})
+        .pipe($.vinylPaths($.del))
+        .pipe($.plumber());
+});
 
 
 gulp.task('clean-dist', function () {
