@@ -19,7 +19,6 @@ var semanticItemsCollection = [semanticExcludes, notSemanticComponents, semantic
 
   
 gulp.task('semantic', function(){
-    console.log();
     gulp.src(semanticItemsCollection)
         .pipe(gulp.dest(config.paths.output.dev.semantic));
 })  
