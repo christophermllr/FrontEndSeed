@@ -11,6 +11,7 @@ var gulp = require('gulp'),
 
 //Load related gulp files
 require('require-dir')('./gulp');
+require('require-dir')('./gulp/deploy');
 
 // default (run without no minify)
 gulp.task('default', ['compile-all', 'serve']);
