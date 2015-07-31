@@ -1,6 +1,4 @@
-Build: ![CI build] (https://wmp.visualstudio.com/DefaultCollection/_apis/public/build/definitions/03733ea1-5d5c-4ede-b7db-30069d74eecf/64/badge)
-
-# wmp-frontend-seed 
+# wmp-frontend-seed  ![CI build] (https://wmp.visualstudio.com/DefaultCollection/_apis/public/build/definitions/03733ea1-5d5c-4ede-b7db-30069d74eecf/64/badge)
 
 This project serves as a basic project structure for your front end code and build based on angular, less, typescript, jade, gulp, and bower.
 
