@@ -16,7 +16,7 @@
 		"output":{
 			"dist": "dist",
 		  	"dev":{
-				"base": "./dev",
+				"base": "dev",
   			 	"styles": "dev/css",
 				"scripts":"dev/js",
 			    "templates": "./dev",

@@ -1,6 +1,8 @@
-.ui.stackable.inverted.blue.menu(ng-controller="navigationController")
-	a.header.item(ui-sref="home") Front end seed
-	a.grey.item(ui-sref="moduleA", ui-sref-active="active") Module A
-	a.grey.item(ui-sref="moduleB", ui-sref-active="active") Module B
-	.right.menu
-		a.item yoo
+.ui.top.fixed.inverted.blue.menu(ng-controller="navigationController")
+		.ui.container
+				a.header.item(ui-sref="home") Front end seed
+				a.grey.item(ui-sref="moduleA", ui-sref-active="active") Module A
+				a.grey.item(ui-sref="moduleB", ui-sref-active="active") Module B
+				.right.menu
+					a.item
+						i.ui.setting.icon 
