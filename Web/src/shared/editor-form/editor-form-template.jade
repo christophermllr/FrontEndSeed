@@ -1,0 +1,17 @@
+.ui.one.column.grid.container
+	.column
+		.ui.top.attached.inverted.grey.icon.menu
+			.ui.container
+				.item
+					.ui.buttons
+						button.ui.inverted.primary.icon.button(ng-disabled='saveDisabled')
+							i.save.icon
+							| &nbsp;Save
+						.ui.basic.inverted.grey.icon.button
+							i.cancel.icon
+							| &nbsp;Discard
+				.item.header {{ formTitle }}
+		.ui.attached.padded.segment
+			ng-transclude
+			
+		{{saveDisabled | json }}

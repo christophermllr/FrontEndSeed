@@ -1,0 +1,8 @@
+editor-form(form-title='yo', save-disabled='!projectAddForm.$valid')
+	form.ui.form(name='projectAddForm')
+		.field
+			label Project name
+			input(type='text', required, placeholder='Enter a name...', ng-model='projectName')
+		.field
+			label Description
+			textarea(placeholder='Enter a description...')

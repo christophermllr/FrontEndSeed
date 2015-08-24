@@ -4,7 +4,7 @@ module FrontEndSeed {
     'use strict';
 
 
-    var frontEndSeed = angular.module('frontEndSeed', ['ModuleB', 'ModuleA', 'TaskPane', 'ui.router']);
+    var frontEndSeed = angular.module('frontEndSeed', ['ModuleB', 'ModuleA',, 'EditorForm', 'Project', 'TaskPane', 'ui.router']);
     frontEndSeed.config([
         '$stateProvider', function ($stateProvider) {
             $stateProvider.

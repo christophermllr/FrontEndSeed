@@ -3,20 +3,21 @@ html(lang="en", ng-app='frontEndSeed')
     
     include shared/_head.jade
 
-    body(ng-controller='mainController as vm')  
-        //- Topbar
-        include navigation/navigation.jade
-        
-        
-        //- Main content           
-        //- Sidebar primary
-        //- Sidebar secondary
-        .ui.two.column.grid.container
-            .thirteen.wide.column                
-                .ui.basic.segment(ui-view='')
-                    h1.ui.header Home
-                    .sub.header A test of the jade template engine and Gulp build process                           
-             .three.wide.column
-                task-pane            
-                
+    body(ng-controller='mainController as vm')          
+        div(ui-view='overlay')
+            //- Topbar
+            include navigation/navigation.jade
+            
+            
+            //- Main content           
+            //- Sidebar primary
+            //- Sidebar secondary
+            .ui.two.column.grid.container
+                .thirteen.wide.column                
+                    .ui.basic.segment(ui-view='')
+                        h1.ui.header Home
+                        .sub.header A test of the jade template engine and Gulp build process                           
+                .three.wide.column
+                    task-pane            
+                    
        include shared/_scripts.jade
