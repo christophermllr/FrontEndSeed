@@ -25,14 +25,14 @@
 	var deployItems = function(){
 		return [
 			config.paths.output.dist + "/**/" + config.globs.css,
-			config.paths.output.dist + "/**/" + config.globs.javascript
+			config.paths.output.dist + "/**/" + config.globs.javascript,
+			config.paths.output.dist + "/**/*.{ttf,woff,svg,eot,png}"
 		];
 	}
 	
 	var cdnifyItems = function(){
-		var deploy = deployItems()
-		deploy.push(config.paths.output.dist + '/**/' + config.globs.html);
-		return deploy;
+		var cdnify = [config.paths.output.dist + '/**/' + config.globs.html];
+		return cdnify;
 	}
 	
 	var cdnifyOptions = function(){
