@@ -2,7 +2,7 @@
 
 module Projects {
     'use strict';
-    angular.module('Project', ['EditorForm', 'ui.router'])
+    angular.module('Projects', ['EditorForm', 'ui.router'])
            .config(["$stateProvider", $stateProvider =>{
                 $stateProvider
                     .state('projects', {
@@ -11,6 +11,7 @@ module Projects {
                     })
                     .state('projects.add', {
                         url: '/add',
+                        controller:'addProjectController as vm',
                         templateUrl: 'projects/add-project.html',
                         views:{
                             "overlay@": {                                
