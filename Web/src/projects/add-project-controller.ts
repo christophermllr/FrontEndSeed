@@ -1,15 +1,10 @@
 /// <reference path='../../typings/tsd.d.ts' />
 
 module Projects {
-
     "use strict";
-    export interface IAddProjectViewModel{
-        name:string;
-        description:string;    
-        cancel();
-        save(); 
-    }
+
     export class AddProjectController implements IAddProjectViewModel {
+        
         public title:string = "Add a project"
         public name:string;
         public description:string;

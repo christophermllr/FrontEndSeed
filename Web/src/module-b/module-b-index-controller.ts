@@ -1,8 +1,7 @@
 /// <reference path='../../typings/tsd.d.ts' />
-
 module ModuleB {
-
     "use strict";
+    
     export class ModuleBIndex {
 
         public static $inject = [
@@ -10,13 +9,11 @@ module ModuleB {
         ];
 
         constructor(private $log : ng.ILogService) {
-            $log.info('instantiate front end controller');
-
+            $log.info('instantiate Module B Index controller');
             this.activate();
         }
         private activate(){
-            this.$log.info('activating front end controller');
-            
+            this.$log.info('activating Module B Index controller');            
         }
     }
 

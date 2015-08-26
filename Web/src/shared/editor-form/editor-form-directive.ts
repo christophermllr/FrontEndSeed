@@ -1,8 +1,9 @@
 /// <reference path='../../../typings/tsd.d.ts' />
 module EditorForm {
-    'use strict';
+    'use strict';		
     export class EditorFormDirectiveController {
 		public test = "123";
+		
 		constructor(private $log: ng.ILogService) {
 			var self = this;
 			self.test = '123';
@@ -18,8 +19,6 @@ module EditorForm {
 		}
 	}
 	export function EditorFormDirective(): ng.IDirective {
-
-
 		return {
 			restrict: 'EA',
 			transclude: true,
