@@ -2,5 +2,5 @@
 
 module EditorForm {
     'use strict';
-    angular.module('EditorForm', ['ui.router']);
+    angular.module('editorForm', ['ui.router']);
 }

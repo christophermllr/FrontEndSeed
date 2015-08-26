@@ -39,7 +39,7 @@ module Projects {
     }
 
     angular
-        .module('Projects')
+        .module('fes.projects')
         .controller('AddProjectController', AddProjectController);
 
 }

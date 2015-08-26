@@ -8,7 +8,7 @@ module TaskPane {
         };
     }
     
-    var module = angular.module('TaskPane');    
+    var module = angular.module('taskPane');    
     module.directive('taskPane', TaskPaneDirective);
     
 }

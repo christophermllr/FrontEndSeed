@@ -2,7 +2,7 @@
 
 module Projects {
     'use strict';
-    angular.module('Projects', ['EditorForm', 'ui.router'])
+    angular.module('fes.projects', ['editorForm', 'ui.router'])
            .config(["$stateProvider", $stateProvider =>{
                 $stateProvider
                     .state('projects', {

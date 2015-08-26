@@ -37,6 +37,6 @@ module EditorForm {
 		}
 	}
 
-	var module = angular.module('EditorForm');
+	var module = angular.module('editorForm');
 	module.directive('fesEditorForm', EditorFormDirective);
 }

@@ -21,7 +21,7 @@ module ModuleB {
     }
 
     angular
-        .module('ModuleB')
-        .controller('moduleBIndexController', ModuleBIndex);
+        .module('moduleB')
+        .controller('ModuleBIndexController', ModuleBIndex);
 
 }

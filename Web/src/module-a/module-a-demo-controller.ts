@@ -35,7 +35,7 @@ module ModuleA {
     }
 
     angular
-        .module('ModuleA')
-        .controller('demoController', DemoController);
+        .module('moduleA')
+        .controller('DemoController', DemoController);
 
 }

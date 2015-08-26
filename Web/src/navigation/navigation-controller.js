@@ -3,7 +3,7 @@
 
     angular
         .module('frontEndSeed')
-        .controller('navigationController', navigation_controller);
+        .controller('NavigationController', navigation_controller);
 
     navigation_controller.$inject = ['$location', '$scope', '$log']; 
 
