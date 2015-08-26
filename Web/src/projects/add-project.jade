@@ -1,4 +1,8 @@
-editor-form(form-title='Add a project', save-disabled='vm.projectAddForm.$invalid', discard='alert("yo")')
+fes-editor-form(fes-form-title='{{vm.title}}', 
+				fes-save-disabled='vm.projectAddForm.$invalid', 
+				fes-on-discard='vm.cancel()' 
+				fes-on-save='vm.save()')
+				
 	form.ui.form(name='vm.projectAddForm')
 		.field
 			label Project name
@@ -6,6 +10,13 @@ editor-form(form-title='Add a project', save-disabled='vm.projectAddForm.$invali
 		.field
 			label Description
 			textarea(placeholder='Enter a description...', ng-model='vm.description')
+
 .ui.container
 	.ui.segment
+		.ui.checkbox
+				input(type='checkbox', ng-model='vm.debug') 
+				label View Debug	
+		
+	.ui.segment(ng-if='vm.debug')
+		.ui.heading View Model Info
 		pre {{ vm | json }}			

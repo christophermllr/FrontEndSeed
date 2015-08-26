@@ -1,34 +1,42 @@
 /// <reference path='../../../typings/tsd.d.ts' />
 module EditorForm {
     'use strict';
-    
-	export function EditorFormDirective() : ng.IDirective{
-		var controller = function($log){
-				var self = this;				
-				self.test = '123';
-				self.cancel = function(){
-					$log.info('cancel');
-					$log.info(self);
-					self.discard();
-				}
-			};
-		
-		return {	
-			restrict:'EA',
-			transclude:true,
-			scope: {				
-				discard:'&',
-				saveEnabled:'=',
-				saveDisabled:'=',
-				formTitle: '@'							
+    export class EditorFormDirectiveController {
+		public test = "123";
+		constructor(private $log: ng.ILogService) {
+			var self = this;
+			self.test = '123';
+
+		}
+		public cancel() {
+			this.$log.info('cancel');
+			this.onDiscard();
+		}
+		public save(){
+			this.$log.info('save');
+			this.onSave();
+		}
+	}
+	export function EditorFormDirective(): ng.IDirective {
+
+
+		return {
+			restrict: 'EA',
+			transclude: true,
+			scope: {
+				onDiscard: '&fesOnDiscard',
+				onSave: '&fesOnSave',
+				saveEnabled: '=fesSaveEnabled',
+				saveDisabled: '=fesSaveDisabled',
+				formTitle: '@fesFormTitle'
 			},
 			bindToController: true,
-			controller: controller,
-			controllerAs:'vm',
-			templateUrl:'shared/editor-form/editor-form-template.html'			
-		}	
-	}		
+			controller: EditorFormDirectiveController,
+			controllerAs: 'vm',
+			templateUrl: 'shared/editor-form/editor-form-template.html'
+		}
+	}
 
 	var module = angular.module('EditorForm');
-	module.directive('editorForm', EditorFormDirective);		
+	module.directive('fesEditorForm', EditorFormDirective);
 }

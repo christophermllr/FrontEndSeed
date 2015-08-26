@@ -6,10 +6,11 @@ module Projects {
     export interface IAddProjectViewModel{
         name:string;
         description:string;    
-        cancel();  
+        cancel();
+        save(); 
     }
     export class AddProjectController implements IAddProjectViewModel {
-
+        public title:string = "Add a project"
         public name:string;
         public description:string;
         public addForm: ng.IFormController;
@@ -19,12 +20,10 @@ module Projects {
         ];
 
         constructor(private $log : ng.ILogService) {
-            $log.info('instantiate add project controller');            
             this.activate();
         }
         private activate(){
-            this.$log.info('activating front end controller');
-            
+            this.$log.info('activating add project controller');            
        }
        private reset(){
            this.name = null;
@@ -32,9 +31,11 @@ module Projects {
            this.addForm = null;
        }
        public cancel(){
-           this.reset;
-           this.$log.info('Cancelling');
-       }        
+           this.reset();           
+       }  
+       public save(){
+           this.$log.info("Saving");           
+       }      
     }
 
     angular

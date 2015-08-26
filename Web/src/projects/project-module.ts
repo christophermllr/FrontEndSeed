@@ -11,10 +11,11 @@ module Projects {
                     })
                     .state('projects.add', {
                         url: '/add',
-                        controller:'addProjectController as vm',
+                        
                         templateUrl: 'projects/add-project.html',
                         views:{
-                            "overlay@": {                                
+                            "overlay@": {
+                                controller:'AddProjectController as vm',                                
                                 templateUrl: 'projects/add-project.html'
                             }
                         }

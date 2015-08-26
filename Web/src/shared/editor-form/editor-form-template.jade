@@ -4,13 +4,12 @@
 			.ui.container
 				.item
 					.ui.buttons
-						button.ui.inverted.primary.icon.button(ng-disabled='vm.saveDisabled')
+						button.ui.inverted.primary.icon.button(ng-disabled='vm.saveDisabled', ng-click='vm.save()')
 							i.save.icon
 							| &nbsp;Save
-						.ui.basic.inverted.grey.icon.button(ng-click='vm.cancel()')
+						button.ui.basic.inverted.grey.icon.button(ng-click='vm.cancel()')
 							i.cancel.icon
 							| &nbsp;Discard
 				.item.header {{ vm.formTitle }}
 		.ui.attached.padded.segment
 			ng-transclude
-		pre {{vm | json}}
