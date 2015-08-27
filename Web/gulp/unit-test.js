@@ -11,7 +11,7 @@ var karmaConfig = __dirname + '/../test/karma.conf.js';
 /**
  * Run test once and exit
  */
-gulp.task('test', ['inject-karma'], function (done) {
+gulp.task('test', ['inject-karma', 'compile-typescript-tests'], function (done) {
     $.karma.server.start({
         configFile: karmaConfig,
         singleRun: true
@@ -21,7 +21,7 @@ gulp.task('test', ['inject-karma'], function (done) {
 /**
  * Watch for file changes and re-run tests on each change
  */
-gulp.task('tdd', ['inject-karma'], function (done) {
+gulp.task('tdd', ['inject-karma', 'compile-typescript-tests'], function (done) {
     $.karma.server.start({
         configFile: karmaConfig
     }, done);

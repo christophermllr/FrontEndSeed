@@ -68,6 +68,7 @@
     "require-dot-file": "^0.4.0",
     "rimraf": "^2.4.2",
     "run-sequence": "^1.1.0",
+    "stream-series": "^0.1.1",
     "wiredep": "^1.8.6",
     "yamljs": "^0.2.3"
   },

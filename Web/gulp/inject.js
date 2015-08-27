@@ -63,23 +63,32 @@ gulp.task('inject-typescript', function () {
 
 gulp.task('inject-karma', ['inject-typescript'], function () {
 
-    // Wire up the karma configuration file with Bower dependencies
-    gulp.src('test/karma.conf.js')
-        .pipe(wiredep({
-            devDependencies: true,
+    var angularSources = gulp.src(path.join(config.paths.output.dev.scripts, '/**/' + config.globs.javascript)).pipe($.angularFilesort());
+    var bowerSources = gulp.src($.mainBowerFiles(), {read:false});
 
-            fileTypes: {
-                js: {
-                    block: /(([\s\t]*)\/\/\s*bower:*(\S*))(\n|\r|.)*?(\/\/\s*endbower)/gi,
-                    detect: {
-                        js: /'(.*\.js)'/gi
-                    },
-                    replace: {
-                        js: '\'{{filePath}}\','
-                    }
-                }
+    return gulp.src('test/karma.conf.js')
+        .pipe($.inject(angularSources, {
+            read: false,
+            ignorePath: config.paths.output.dev.base,
+            addRootSlash: false,
+            starttag: '// js',
+            endtag: '// endjs',
+            transform: function (filepath, file, i, length) {
+                return '"' + filepath + '"' + (i + 1 < length ? ',' : '');
             }
         }))
+        .pipe($.inject(bowerSources, {
+            name:'bower', 
+            ignorePath:'bower_components', 
+            addRootSlash:false, 
+            addPrefix:'lib',
+            starttag: '// bower',
+            endtag: '// endbower',
+            transform: function (filepath, file, i, length) {
+                return '"' + filepath + '"' + (i < length ? ',' : '');
+            }
+
+        }))       
         .pipe(gulp.dest('test'));
 
 });

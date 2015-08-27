@@ -22,12 +22,12 @@
 			    "templates": "./dev",
 			 	"lib": "dev/lib",
 				"semantic": "dev/semantic"
-			  }
-			
+			  },
+			 "test": "dev/test"
 		},		
 		"test": {
-			"base": "tests",
-			"config": "tests/karma.conf.js"
+			"base": "test",
+			"config": "test/karma.conf.js"
 		},
 		"typings": "typings"
 	},

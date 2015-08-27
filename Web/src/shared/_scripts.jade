@@ -4,28 +4,32 @@ block scripts
     script(src="lib/angular/angular.js")
     script(src="lib/angular-ui-router/release/angular-ui-router.js")
     script(src="lib/jquery/dist/jquery.js")
+    script(src="lib/angular-mocks/angular-mocks.js")
     //- endinject
     script(src="semantic/semantic.js")
     // endbuild 
 
     // build:js js/app.js
     //- inject:js
+    script(src="js/shared/editor-form/editor-form-module.js")
+    script(src="js/shared/editor-form/editor-form-directive.js")
     script(src="js/shared/core/IViewModel.js")
     script(src="js/shared/core/INamed.js")
     script(src="js/shared/core/IIdentified.js")
-    script(src="js/shared/editor-form/editor-form-module.js")
-    script(src="js/shared/editor-form/editor-form-directive.js")
+    script(src="js/underscore/underscore-module.js")
     script(src="js/taskpane/taskpane-module.js")
     script(src="js/taskpane/taskpane-directive.js")
     script(src="js/projects/project-module.js")
     script(src="js/projects/add-project-controller.js")
     script(src="js/projects/IAddProjectViewModel.js")
-    script(src="js/module-b/module-b.js")
-    script(src="js/module-b/module-b-index-controller.js")
     script(src="js/main.js")
     script(src="js/navigation/navigation-controller.js")
+    script(src="js/module-b/module-b.js")
+    script(src="js/module-b/module-b-index-controller.js")
     script(src="js/module-a/module-a-module.js")
     script(src="js/module-a/module-a-demo-controller.js")
     script(src="js/module-a/IDemoModel.js")
+    script(src="js/core/INamed.js")
+    script(src="js/core/IIdentified.js")
     //- endinject
     // endbuild 

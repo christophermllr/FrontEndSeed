@@ -5,7 +5,7 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: '../dev/',
 
 
     // frameworks to use
@@ -15,14 +15,37 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        // bower:js
-        '../bower_components/angular/angular.js',
-        '../bower_components/angular-ui-router/release/angular-ui-router.js',
+        // bower
+        "lib/angular/angular.js",
+        "lib/angular-ui-router/release/angular-ui-router.js",
+        "lib/jquery/dist/jquery.js",
+        "lib/angular-mocks/angular-mocks.js",
         // endbower
-      {pattern: '../.tmp/scripts/**/*.js', included: true},
-      {pattern: 'unit/**/*.js', included: true}
-
-    ],
+        // js
+        "js/shared/editor-form/editor-form-module.js",
+        "js/shared/editor-form/editor-form-directive.js",
+        "js/shared/core/IViewModel.js",
+        "js/shared/core/INamed.js",
+        "js/shared/core/IIdentified.js",
+        "js/underscore/underscore-module.js",
+        "js/taskpane/taskpane-module.js",
+        "js/taskpane/taskpane-directive.js",
+        "js/projects/project-module.js",
+        "js/projects/add-project-controller.js",
+        "js/projects/IAddProjectViewModel.js",
+        "js/module-a/module-a-module.js",
+        "js/module-a/module-a-demo-controller.js",
+        "js/module-a/IDemoModel.js",
+        "js/main.js",
+        "js/navigation/navigation-controller.js",
+        "js/module-b/module-b.js",
+        "js/module-b/module-b-index-controller.js",
+        "js/core/INamed.js",
+        "js/core/IIdentified.js"
+        // endjs
+          ,
+          "test/**/*.js"
+        ],
 
 
     // list of files to exclude
