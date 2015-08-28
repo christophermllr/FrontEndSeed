@@ -79,17 +79,14 @@ foreach ($file in $files) {
     $remfilename = $remfilename.Replace("\", "/")
 	$destination = $destinationuri + $remfilename
     if ($file.Attributes.ToString().IndexOf("Directory") -ge 0) {
-      try
-      {
-		":: Creating FTP Directory " + $destination
-		Create-FtpDirectory $destination $username $password
-      }
-      catch {} #if the directory already exists, ignore the error
+    	try
+      	{
+			":: Creating FTP Directory " + $destination
+			Create-FtpDirectory $destination $username $password
+      	} catch {} #if the directory already exists, ignore the error
     }
     else {
 		":: Uploading FTP File :: from " + $file.FullName + " to " + $destination
 		Upload-FtpFile $destination $username $password $file.FullName
-    } #end ifelse
-  } #end foreach
-
-## ./deploy.ps1 ftp://waws-prod-ch1-011.ftp.azurewebsites.windows.net/site/wwwroot COMCTGWEBPOR200\`$COMCTGWEBPOR200 zW4Abpnbnl61jfvLvuPW1GSeCtzK8BioChHzHbjQ9cJT26zbcr0e71y5hXgF C:\Users\cmiller\Desktop\build
+    }
+}
