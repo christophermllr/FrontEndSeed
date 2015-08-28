@@ -77,16 +77,16 @@ $files = (get-childitem $pathdir -r)
 foreach ($file in $files) {
     $remfilename = $file.FullName.Replace($pathdir, "")
     $remfilename = $remfilename.Replace("\", "/")
-	$destination = $destinationuri + $remfilename
+    $destination = $destinationuri + $remfilename
     if ($file.Attributes.ToString().IndexOf("Directory") -ge 0) {
-    	try
-      	{
-			":: Creating FTP Directory " + $destination
-			Create-FtpDirectory $destination $username $password
-      	} catch {} #if the directory already exists, ignore the error
+        try
+        {
+            ":: Creating FTP Directory " + $destination
+            Create-FtpDirectory $destination $username $password
+        } catch {} #if the directory already exists, ignore the error
     }
     else {
-		":: Uploading FTP File :: from " + $file.FullName + " to " + $destination
-		Upload-FtpFile $destination $username $password $file.FullName
+        ":: Uploading FTP File :: from " + $file.FullName + " to " + $destination
+        Upload-FtpFile $destination $username $password $file.FullName
     }
 }
